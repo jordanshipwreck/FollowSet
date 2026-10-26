@@ -16,13 +16,13 @@ There is no `npm run build` step. The workflow publishes the `site/` directory a
 
 ## Deploy
 
-Pushes to `main` run [`.github/workflows/pages.yml`](.github/workflows/pages.yml). That workflow uses `actions/configure-pages`, `actions/upload-pages-artifact`, and `actions/deploy-pages`.
+Pushes to `main` run [`.github/workflows/pages.yml`](.github/workflows/pages.yml). That workflow uses `actions/configure-pages` (with `enablement: true`), `actions/upload-pages-artifact`, and `actions/deploy-pages`.
 
-GitHub Pages has to use **GitHub Actions** as the source. If the site is not live yet:
+`GITHUB_TOKEN` often cannot create the Pages site. If a run fails with "Get Pages site failed" or "Create Pages site failed":
 
 1. Open https://github.com/jordanshipwreck/fitty/settings/pages
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-3. If the latest run failed, open the **Actions** tab, select **Deploy to GitHub Pages**, and choose **Re-run jobs**.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions** (not "Deploy from a branch").
+3. Open https://github.com/jordanshipwreck/fitty/actions/workflows/pages.yml and choose **Re-run jobs** on the latest run, or push an empty commit.
 
 The published address is https://jordanshipwreck.github.io/fitty/
 
