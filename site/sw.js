@@ -1,13 +1,15 @@
-/* Fitty-Cent offline shell. Scope is /fitty/ (the script lives in that directory). */
-const CACHE = "fitty-shell-v3";
-const BASE = "/fitty/";
+/* Followset offline shell. Scope follows this script's directory, so /fitty/ and /FollowSet/ both work.
+   Exercise demo GIFs are not precached. The fetch handler stores each one the first time it is viewed. */
+const CACHE = "fitty-shell-v4";
+const SCOPE = new URL("./", self.location);
 const SHELL = [
-  `${BASE}`,
-  `${BASE}index.html`,
-  `${BASE}manifest.webmanifest`,
-  `${BASE}icon-192.png`,
-  `${BASE}icon-512.png`,
-  `${BASE}apple-touch-icon.png`,
+  new URL("./", self.location).href,
+  new URL("./index.html", self.location).href,
+  new URL("./exercises.json", self.location).href,
+  new URL("./manifest.webmanifest", self.location).href,
+  new URL("./icon-192.png", self.location).href,
+  new URL("./icon-512.png", self.location).href,
+  new URL("./apple-touch-icon.png", self.location).href,
 ];
 
 self.addEventListener("install", (event) => {
@@ -44,7 +46,8 @@ self.addEventListener("fetch", (event) => {
   if (request.method !== "GET") return;
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
-  if (url.pathname !== BASE && !url.pathname.startsWith(BASE)) return;
+  const scopePath = new URL(self.registration.scope).pathname;
+  if (url.pathname !== scopePath && !url.pathname.startsWith(scopePath)) return;
 
   event.respondWith(
     (async () => {
@@ -59,7 +62,11 @@ self.addEventListener("fetch", (event) => {
         const cached = await caches.match(request);
         if (cached) return cached;
         if (request.mode === "navigate") {
-          return (await caches.match(`${BASE}index.html`)) || (await caches.match(BASE)) || Response.error();
+          return (
+            (await caches.match(new URL("./index.html", SCOPE).href)) ||
+            (await caches.match(SCOPE.href)) ||
+            Response.error()
+          );
         }
         return Response.error();
       }

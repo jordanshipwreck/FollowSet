@@ -1,29 +1,29 @@
 {
-  "id": "/fitty/",
-  "name": "Fitty-Cent",
-  "short_name": "Fitty-Cent",
-  "description": "Fitty-Cent workout week, Oct 26 to Nov 1 2026. Log sets, run superset rest timers, and keep the demo on screen.",
-  "start_url": "/fitty/",
-  "scope": "/fitty/",
+  "id": "./",
+  "name": "Followset",
+  "short_name": "Followset",
+  "description": "Followset workout week, Oct 26 to Nov 1 2026. Log sets, run superset rest timers, and keep the demo on screen.",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#08090b",
   "theme_color": "#08090b",
   "lang": "en",
   "icons": [
     {
-      "src": "/fitty/icon-192.png",
+      "src": "./icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/fitty/icon-512.png",
+      "src": "./icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/fitty/icon-512.png",
+      "src": "./icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"

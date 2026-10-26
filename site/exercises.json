@@ -1,0 +1,2473 @@
+[
+  {
+    "slug": "arm-circles",
+    "name": "Arm circles",
+    "primaryMuscles": [
+      "shoulders"
+    ],
+    "secondaryMuscles": [],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": false,
+    "defaultReps": "15/side",
+    "restSeconds": 15,
+    "cues": [
+      "Start with small circles, then let them grow.",
+      "Shoulders stay down.",
+      "Keep breathing."
+    ],
+    "warmup": true,
+    "stretch": false,
+    "finisher": false,
+    "phase": "warmup",
+    "days": [
+      "Mon",
+      "Tue",
+      "Thu",
+      "Fri",
+      "Sun"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": null,
+    "demoGif": null,
+    "still": null,
+    "frames": [],
+    "demoReady": false
+  },
+  {
+    "slug": "wall-slides",
+    "name": "Wall slides",
+    "primaryMuscles": [
+      "shoulders"
+    ],
+    "secondaryMuscles": [
+      "back"
+    ],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": false,
+    "defaultReps": "8",
+    "restSeconds": 15,
+    "cues": [
+      "Back of the hands and elbows try to touch the wall.",
+      "Slide up only as far as the ribs stay down.",
+      "Don't shrug."
+    ],
+    "warmup": true,
+    "stretch": false,
+    "finisher": false,
+    "phase": "warmup",
+    "days": [
+      "Mon",
+      "Thu"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": null,
+    "demoGif": null,
+    "still": null,
+    "frames": [],
+    "demoReady": false
+  },
+  {
+    "slug": "incline-walk-primer-easy-pace",
+    "name": "Incline walk primer, easy pace",
+    "primaryMuscles": [],
+    "secondaryMuscles": [],
+    "station": "treadmill",
+    "equipment": "Treadmill",
+    "unilateral": false,
+    "defaultReps": "2 min",
+    "restSeconds": 15,
+    "cues": [
+      "Easy pace. This is only to get warm.",
+      "Hold the rails lightly.",
+      "Stay tall."
+    ],
+    "warmup": true,
+    "stretch": false,
+    "finisher": false,
+    "phase": "warmup",
+    "days": [
+      "Mon",
+      "Tue",
+      "Thu"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": "incline-treadmill-walk",
+    "demoGif": "media/incline-treadmill-walk/demo.gif",
+    "still": "media/incline-treadmill-walk/01.jpg",
+    "frames": [
+      "media/incline-treadmill-walk/01.jpg",
+      "media/incline-treadmill-walk/02.jpg",
+      "media/incline-treadmill-walk/03.jpg",
+      "media/incline-treadmill-walk/04.jpg",
+      "media/incline-treadmill-walk/05.jpg",
+      "media/incline-treadmill-walk/06.jpg",
+      "media/incline-treadmill-walk/07.jpg",
+      "media/incline-treadmill-walk/08.jpg"
+    ],
+    "demoReady": false
+  },
+  {
+    "slug": "incline-db-press-30",
+    "name": "Incline DB press (30\u00b0)",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "shoulders",
+      "triceps"
+    ],
+    "station": "db-incline",
+    "equipment": "Dumbbell",
+    "unilateral": false,
+    "defaultReps": "8\u201312",
+    "restSeconds": 90,
+    "cues": [
+      "Set the bench near 30 degrees.",
+      "Wrists stay stacked over the elbows.",
+      "Press up and slightly in."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Mon"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "incline-db-press",
+    "demoGif": "media/incline-db-press/demo.gif",
+    "still": "media/incline-db-press/01.jpg",
+    "frames": [
+      "media/incline-db-press/01.jpg",
+      "media/incline-db-press/02.jpg",
+      "media/incline-db-press/03.jpg",
+      "media/incline-db-press/04.jpg",
+      "media/incline-db-press/05.jpg",
+      "media/incline-db-press/06.jpg",
+      "media/incline-db-press/07.jpg",
+      "media/incline-db-press/08.jpg"
+    ],
+    "demoReady": false
+  },
+  {
+    "slug": "cable-lateral-raise-low-pulley",
+    "name": "Cable lateral raise (low pulley)",
+    "primaryMuscles": [
+      "shoulders"
+    ],
+    "secondaryMuscles": [],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": true,
+    "defaultReps": "12\u201315",
+    "restSeconds": 90,
+    "cues": [
+      "Lead with the elbow, not the hand.",
+      "Stop around shoulder height.",
+      "Keep the shoulder down, away from the ear."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Mon"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "cable-lateral-raise",
+    "demoGif": "media/cable-lateral-raise/demo.gif",
+    "still": "media/cable-lateral-raise/01.jpg",
+    "frames": [
+      "media/cable-lateral-raise/01.jpg",
+      "media/cable-lateral-raise/02.jpg",
+      "media/cable-lateral-raise/03.jpg",
+      "media/cable-lateral-raise/04.jpg",
+      "media/cable-lateral-raise/05.jpg",
+      "media/cable-lateral-raise/06.jpg",
+      "media/cable-lateral-raise/07.jpg",
+      "media/cable-lateral-raise/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "seated-cable-chest-press",
+    "name": "Seated cable chest press",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "shoulders",
+      "triceps"
+    ],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": false,
+    "defaultReps": "10\u201312",
+    "restSeconds": 75,
+    "cues": [
+      "Pin the shoulder blades to the pad.",
+      "Press until the elbows are almost straight.",
+      "Keep the handles at chest height."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Mon"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "seated-cable-chest-press",
+    "demoGif": "media/seated-cable-chest-press/demo.gif",
+    "still": "media/seated-cable-chest-press/01.jpg",
+    "frames": [
+      "media/seated-cable-chest-press/01.jpg",
+      "media/seated-cable-chest-press/02.jpg",
+      "media/seated-cable-chest-press/03.jpg",
+      "media/seated-cable-chest-press/04.jpg",
+      "media/seated-cable-chest-press/05.jpg",
+      "media/seated-cable-chest-press/06.jpg",
+      "media/seated-cable-chest-press/07.jpg",
+      "media/seated-cable-chest-press/08.jpg"
+    ],
+    "demoReady": false
+  },
+  {
+    "slug": "front-plank",
+    "name": "Front plank",
+    "primaryMuscles": [
+      "abs"
+    ],
+    "secondaryMuscles": [
+      "shoulders"
+    ],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": false,
+    "defaultReps": "30\u201345 s",
+    "restSeconds": 75,
+    "cues": [
+      "Ribs down, glutes tight.",
+      "Push the floor away so the upper back stays broad.",
+      "Straight line from head to heels."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Mon",
+      "Sat"
+    ],
+    "drop": false,
+    "defaultSets": 2,
+    "mediaSlug": "front-plank",
+    "demoGif": "media/front-plank/demo.gif",
+    "still": "media/front-plank/01.jpg",
+    "frames": [
+      "media/front-plank/01.jpg",
+      "media/front-plank/02.jpg",
+      "media/front-plank/03.jpg",
+      "media/front-plank/04.jpg",
+      "media/front-plank/05.jpg",
+      "media/front-plank/06.jpg",
+      "media/front-plank/07.jpg",
+      "media/front-plank/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "face-pull-rope-high",
+    "name": "Face pull (rope, high)",
+    "primaryMuscles": [
+      "rear delts"
+    ],
+    "secondaryMuscles": [
+      "back"
+    ],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": false,
+    "defaultReps": "12\u201315",
+    "restSeconds": 60,
+    "cues": [
+      "Pull the rope toward your face.",
+      "Finish with thumbs back and shoulder blades together.",
+      "Ribs down so the low back doesn't arch."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Mon"
+    ],
+    "drop": false,
+    "defaultSets": 2,
+    "mediaSlug": "face-pull",
+    "demoGif": "media/face-pull/demo.gif",
+    "still": "media/face-pull/01.jpg",
+    "frames": [
+      "media/face-pull/01.jpg",
+      "media/face-pull/02.jpg",
+      "media/face-pull/03.jpg",
+      "media/face-pull/04.jpg",
+      "media/face-pull/05.jpg",
+      "media/face-pull/06.jpg",
+      "media/face-pull/07.jpg",
+      "media/face-pull/08.jpg"
+    ],
+    "demoReady": false
+  },
+  {
+    "slug": "dead-bug",
+    "name": "Dead bug",
+    "primaryMuscles": [
+      "abs"
+    ],
+    "secondaryMuscles": [
+      "hip flexors"
+    ],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": false,
+    "defaultReps": "10/side",
+    "restSeconds": 60,
+    "cues": [
+      "Low back stays lightly pressed down.",
+      "Exhale as the arm and opposite leg reach.",
+      "Slow enough that the pelvis doesn't rock."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Mon",
+      "Fri",
+      "Sun"
+    ],
+    "drop": false,
+    "defaultSets": 2,
+    "mediaSlug": "dead-bug",
+    "demoGif": "media/dead-bug/demo.gif",
+    "still": "media/dead-bug/01.jpg",
+    "frames": [
+      "media/dead-bug/01.jpg",
+      "media/dead-bug/02.jpg",
+      "media/dead-bug/03.jpg",
+      "media/dead-bug/04.jpg",
+      "media/dead-bug/05.jpg",
+      "media/dead-bug/06.jpg",
+      "media/dead-bug/07.jpg",
+      "media/dead-bug/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "cable-fly-high-to-low",
+    "name": "Cable fly, high-to-low",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "shoulders"
+    ],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": false,
+    "defaultReps": "12\u201315",
+    "restSeconds": 60,
+    "cues": [
+      "Keep a soft bend in the elbows.",
+      "Sweep down and in, like hugging a barrel.",
+      "Squeeze the chest. Don't crash the handles."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Mon"
+    ],
+    "drop": true,
+    "defaultSets": 2,
+    "mediaSlug": "cable-fly-high-to-low",
+    "demoGif": "media/cable-fly-high-to-low/demo.gif",
+    "still": "media/cable-fly-high-to-low/01.jpg",
+    "frames": [
+      "media/cable-fly-high-to-low/01.jpg",
+      "media/cable-fly-high-to-low/02.jpg",
+      "media/cable-fly-high-to-low/03.jpg",
+      "media/cable-fly-high-to-low/04.jpg",
+      "media/cable-fly-high-to-low/05.jpg",
+      "media/cable-fly-high-to-low/06.jpg",
+      "media/cable-fly-high-to-low/07.jpg",
+      "media/cable-fly-high-to-low/08.jpg"
+    ],
+    "demoReady": false
+  },
+  {
+    "slug": "overhead-rope-triceps-extension",
+    "name": "Overhead rope triceps extension",
+    "primaryMuscles": [
+      "triceps"
+    ],
+    "secondaryMuscles": [],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": false,
+    "defaultReps": "10\u201312",
+    "restSeconds": 60,
+    "cues": [
+      "Elbows point forward and stay narrow.",
+      "Only the forearms move.",
+      "Stretch at the bottom, lock out at the top."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Mon"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "overhead-rope-triceps-extension",
+    "demoGif": "media/overhead-rope-triceps-extension/demo.gif",
+    "still": "media/overhead-rope-triceps-extension/01.jpg",
+    "frames": [
+      "media/overhead-rope-triceps-extension/01.jpg",
+      "media/overhead-rope-triceps-extension/02.jpg",
+      "media/overhead-rope-triceps-extension/03.jpg",
+      "media/overhead-rope-triceps-extension/04.jpg",
+      "media/overhead-rope-triceps-extension/05.jpg",
+      "media/overhead-rope-triceps-extension/06.jpg",
+      "media/overhead-rope-triceps-extension/07.jpg",
+      "media/overhead-rope-triceps-extension/08.jpg"
+    ],
+    "demoReady": false
+  },
+  {
+    "slug": "triceps-pushdown",
+    "name": "Triceps pushdown",
+    "primaryMuscles": [
+      "triceps"
+    ],
+    "secondaryMuscles": [],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": false,
+    "defaultReps": "12\u201315",
+    "restSeconds": 45,
+    "cues": [
+      "Elbows pinned to your sides.",
+      "Straighten the arms fully.",
+      "Control the way up."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Mon"
+    ],
+    "drop": true,
+    "defaultSets": 2,
+    "mediaSlug": "triceps-pushdown",
+    "demoGif": "media/triceps-pushdown/demo.gif",
+    "still": "media/triceps-pushdown/01.jpg",
+    "frames": [
+      "media/triceps-pushdown/01.jpg",
+      "media/triceps-pushdown/02.jpg",
+      "media/triceps-pushdown/03.jpg",
+      "media/triceps-pushdown/04.jpg",
+      "media/triceps-pushdown/05.jpg",
+      "media/triceps-pushdown/06.jpg",
+      "media/triceps-pushdown/07.jpg",
+      "media/triceps-pushdown/08.jpg"
+    ],
+    "demoReady": false
+  },
+  {
+    "slug": "incline-walk-10-14-at-2-8-3-3-mph",
+    "name": "Incline walk, 10\u201314\u00b0 at 2.8\u20133.3 mph",
+    "primaryMuscles": [],
+    "secondaryMuscles": [],
+    "station": "treadmill",
+    "equipment": "Treadmill",
+    "unilateral": false,
+    "defaultReps": "10 min / 25 min",
+    "restSeconds": 15,
+    "cues": [
+      "Hold the rails lightly. Don't hang.",
+      "Short stride, land mid-foot.",
+      "Stay tall. Don't lean on the console."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": true,
+    "phase": "finisher",
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": "incline-treadmill-walk",
+    "demoGif": "media/incline-treadmill-walk/demo.gif",
+    "still": "media/incline-treadmill-walk/01.jpg",
+    "frames": [
+      "media/incline-treadmill-walk/01.jpg",
+      "media/incline-treadmill-walk/02.jpg",
+      "media/incline-treadmill-walk/03.jpg",
+      "media/incline-treadmill-walk/04.jpg",
+      "media/incline-treadmill-walk/05.jpg",
+      "media/incline-treadmill-walk/06.jpg",
+      "media/incline-treadmill-walk/07.jpg",
+      "media/incline-treadmill-walk/08.jpg"
+    ],
+    "demoReady": false
+  },
+  {
+    "slug": "doorway-pec-stretch",
+    "name": "Doorway pec stretch",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "shoulders"
+    ],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": true,
+    "defaultReps": "30 s",
+    "restSeconds": 15,
+    "cues": [
+      "Forearm on the frame, elbow near shoulder height.",
+      "Step through until the chest opens.",
+      "Breathe. Don't bounce."
+    ],
+    "warmup": false,
+    "stretch": true,
+    "finisher": false,
+    "phase": "stretch",
+    "days": [
+      "Mon",
+      "Thu",
+      "Fri"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": null,
+    "demoGif": null,
+    "still": null,
+    "frames": [],
+    "demoReady": false
+  },
+  {
+    "slug": "triceps-stretch-behind-the-head",
+    "name": "Triceps stretch behind the head",
+    "primaryMuscles": [
+      "triceps"
+    ],
+    "secondaryMuscles": [],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": true,
+    "defaultReps": "30 s",
+    "restSeconds": 15,
+    "cues": [
+      "Elbow points at the ceiling.",
+      "Gentle pull. Stop before the shoulder pinches.",
+      "Ribs stay down."
+    ],
+    "warmup": false,
+    "stretch": true,
+    "finisher": false,
+    "phase": "stretch",
+    "days": [
+      "Mon",
+      "Thu",
+      "Fri"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": null,
+    "demoGif": null,
+    "still": null,
+    "frames": [],
+    "demoReady": false
+  },
+  {
+    "slug": "chest-opener-hands-clasped-behind",
+    "name": "Chest opener, hands clasped behind",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "shoulders"
+    ],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": false,
+    "defaultReps": "30 s",
+    "restSeconds": 15,
+    "cues": [
+      "Clasp the hands behind you or hold a rack.",
+      "Lift the chest and squeeze the shoulder blades.",
+      "Stop if the front of the shoulder pinches."
+    ],
+    "warmup": false,
+    "stretch": true,
+    "finisher": false,
+    "phase": "stretch",
+    "days": [
+      "Mon",
+      "Tue",
+      "Thu",
+      "Fri",
+      "Sun"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": null,
+    "demoGif": null,
+    "still": null,
+    "frames": [],
+    "demoReady": false
+  },
+  {
+    "slug": "scapular-squeezes",
+    "name": "Scapular squeezes",
+    "primaryMuscles": [
+      "rear delts"
+    ],
+    "secondaryMuscles": [
+      "back"
+    ],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": false,
+    "defaultReps": "10",
+    "restSeconds": 15,
+    "cues": [
+      "Pinch the shoulder blades down and back.",
+      "Don't shrug toward the ears.",
+      "Hold one second, then release."
+    ],
+    "warmup": true,
+    "stretch": false,
+    "finisher": false,
+    "phase": "warmup",
+    "days": [
+      "Tue",
+      "Fri"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": null,
+    "demoGif": null,
+    "still": null,
+    "frames": [],
+    "demoReady": false
+  },
+  {
+    "slug": "lat-pulldown-high-pulley",
+    "name": "Lat pulldown (high pulley)",
+    "primaryMuscles": [
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "biceps"
+    ],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": false,
+    "defaultReps": "8\u201312",
+    "restSeconds": 90,
+    "cues": [
+      "Lean back just a little.",
+      "Pull the bar to the upper chest.",
+      "Drive the elbows toward your hips."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Tue"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "lat-pulldown",
+    "demoGif": "media/lat-pulldown/demo.gif",
+    "still": "media/lat-pulldown/01.jpg",
+    "frames": [
+      "media/lat-pulldown/01.jpg",
+      "media/lat-pulldown/02.jpg",
+      "media/lat-pulldown/03.jpg",
+      "media/lat-pulldown/04.jpg",
+      "media/lat-pulldown/05.jpg",
+      "media/lat-pulldown/06.jpg",
+      "media/lat-pulldown/07.jpg",
+      "media/lat-pulldown/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "chest-supported-db-row",
+    "name": "Chest-supported DB row",
+    "primaryMuscles": [
+      "back"
+    ],
+    "secondaryMuscles": [
+      "biceps"
+    ],
+    "station": "db-chest",
+    "equipment": "Dumbbell",
+    "unilateral": false,
+    "defaultReps": "8\u201312",
+    "restSeconds": 90,
+    "cues": [
+      "Chest stays on the pad.",
+      "Pull the elbows back, not out wide.",
+      "Pause when the shoulder blades squeeze."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Tue"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "chest-supported-db-row",
+    "demoGif": "media/chest-supported-db-row/demo.gif",
+    "still": "media/chest-supported-db-row/01.jpg",
+    "frames": [
+      "media/chest-supported-db-row/01.jpg",
+      "media/chest-supported-db-row/02.jpg",
+      "media/chest-supported-db-row/03.jpg",
+      "media/chest-supported-db-row/04.jpg",
+      "media/chest-supported-db-row/05.jpg",
+      "media/chest-supported-db-row/06.jpg",
+      "media/chest-supported-db-row/07.jpg",
+      "media/chest-supported-db-row/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "kneeling-cable-crunch",
+    "name": "Kneeling cable crunch",
+    "primaryMuscles": [
+      "abs"
+    ],
+    "secondaryMuscles": [
+      "obliques"
+    ],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": false,
+    "defaultReps": "12\u201315",
+    "restSeconds": 90,
+    "cues": [
+      "Hips stay stacked over the knees.",
+      "Round the spine. Don't just hinge at the hips.",
+      "Exhale hard at the bottom."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Tue",
+      "Wed",
+      "Fri"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "kneeling-cable-crunch",
+    "demoGif": "media/kneeling-cable-crunch/demo.gif",
+    "still": "media/kneeling-cable-crunch/01.jpg",
+    "frames": [
+      "media/kneeling-cable-crunch/01.jpg",
+      "media/kneeling-cable-crunch/02.jpg",
+      "media/kneeling-cable-crunch/03.jpg",
+      "media/kneeling-cable-crunch/04.jpg",
+      "media/kneeling-cable-crunch/05.jpg",
+      "media/kneeling-cable-crunch/06.jpg",
+      "media/kneeling-cable-crunch/07.jpg",
+      "media/kneeling-cable-crunch/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "standing-db-calf-raise",
+    "name": "Standing DB calf raise",
+    "primaryMuscles": [
+      "calves"
+    ],
+    "secondaryMuscles": [
+      "quads"
+    ],
+    "station": "db-standing",
+    "equipment": "Dumbbell",
+    "unilateral": false,
+    "defaultReps": "12\u201315",
+    "restSeconds": 90,
+    "cues": [
+      "Pause at the top on the balls of the feet.",
+      "Lower until you feel a calf stretch.",
+      "Knees stay soft, not locked."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Tue",
+      "Wed"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "standing-db-calf-raise",
+    "demoGif": "media/standing-db-calf-raise/demo.gif",
+    "still": "media/standing-db-calf-raise/01.jpg",
+    "frames": [
+      "media/standing-db-calf-raise/01.jpg",
+      "media/standing-db-calf-raise/02.jpg",
+      "media/standing-db-calf-raise/03.jpg",
+      "media/standing-db-calf-raise/04.jpg",
+      "media/standing-db-calf-raise/05.jpg",
+      "media/standing-db-calf-raise/06.jpg",
+      "media/standing-db-calf-raise/07.jpg",
+      "media/standing-db-calf-raise/08.jpg"
+    ],
+    "demoReady": false
+  },
+  {
+    "slug": "seated-cable-row-v-handle",
+    "name": "Seated cable row (V-handle)",
+    "primaryMuscles": [
+      "back"
+    ],
+    "secondaryMuscles": [
+      "biceps"
+    ],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": false,
+    "defaultReps": "10\u201312",
+    "restSeconds": 75,
+    "cues": [
+      "Sit tall. Don't swing the torso.",
+      "Pull the handle to the lower ribs.",
+      "Shoulder blades back and down."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Tue"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "seated-cable-row",
+    "demoGif": "media/seated-cable-row/demo.gif",
+    "still": "media/seated-cable-row/01.jpg",
+    "frames": [
+      "media/seated-cable-row/01.jpg",
+      "media/seated-cable-row/02.jpg",
+      "media/seated-cable-row/03.jpg",
+      "media/seated-cable-row/04.jpg",
+      "media/seated-cable-row/05.jpg",
+      "media/seated-cable-row/06.jpg",
+      "media/seated-cable-row/07.jpg",
+      "media/seated-cable-row/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "incline-db-curl",
+    "name": "Incline DB curl",
+    "primaryMuscles": [
+      "biceps"
+    ],
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "station": "db-incline",
+    "equipment": "Dumbbell",
+    "unilateral": false,
+    "defaultReps": "10\u201312",
+    "restSeconds": 75,
+    "cues": [
+      "Upper arms stay pointing at the floor.",
+      "Curl without the shoulders rolling forward.",
+      "Lower until the biceps stretch."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Tue"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "incline-db-curl",
+    "demoGif": "media/incline-db-curl/demo.gif",
+    "still": "media/incline-db-curl/01.jpg",
+    "frames": [
+      "media/incline-db-curl/01.jpg",
+      "media/incline-db-curl/02.jpg",
+      "media/incline-db-curl/03.jpg",
+      "media/incline-db-curl/04.jpg",
+      "media/incline-db-curl/05.jpg",
+      "media/incline-db-curl/06.jpg",
+      "media/incline-db-curl/07.jpg",
+      "media/incline-db-curl/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "cable-lateral-raise",
+    "name": "Cable lateral raise",
+    "primaryMuscles": [
+      "shoulders"
+    ],
+    "secondaryMuscles": [],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": true,
+    "defaultReps": "12\u201315 / 15",
+    "restSeconds": 60,
+    "cues": [
+      "Lead with the elbow, not the hand.",
+      "Stop around shoulder height.",
+      "Keep the shoulder down, away from the ear."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Tue",
+      "Thu",
+      "Fri"
+    ],
+    "drop": true,
+    "defaultSets": 3,
+    "mediaSlug": "cable-lateral-raise",
+    "demoGif": "media/cable-lateral-raise/demo.gif",
+    "still": "media/cable-lateral-raise/01.jpg",
+    "frames": [
+      "media/cable-lateral-raise/01.jpg",
+      "media/cable-lateral-raise/02.jpg",
+      "media/cable-lateral-raise/03.jpg",
+      "media/cable-lateral-raise/04.jpg",
+      "media/cable-lateral-raise/05.jpg",
+      "media/cable-lateral-raise/06.jpg",
+      "media/cable-lateral-raise/07.jpg",
+      "media/cable-lateral-raise/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "hammer-curl",
+    "name": "Hammer curl",
+    "primaryMuscles": [
+      "biceps"
+    ],
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "station": "db-standing",
+    "equipment": "Dumbbell",
+    "unilateral": false,
+    "defaultReps": "10\u201312",
+    "restSeconds": 60,
+    "cues": [
+      "Thumbs stay up.",
+      "Elbows stay beside the ribs.",
+      "Don't rock the hips to start the weight."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Tue"
+    ],
+    "drop": true,
+    "defaultSets": 2,
+    "mediaSlug": "hammer-curl",
+    "demoGif": "media/hammer-curl/demo.gif",
+    "still": "media/hammer-curl/01.jpg",
+    "frames": [
+      "media/hammer-curl/01.jpg",
+      "media/hammer-curl/02.jpg",
+      "media/hammer-curl/03.jpg",
+      "media/hammer-curl/04.jpg",
+      "media/hammer-curl/05.jpg",
+      "media/hammer-curl/06.jpg",
+      "media/hammer-curl/07.jpg",
+      "media/hammer-curl/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "hollow-hold",
+    "name": "Hollow hold",
+    "primaryMuscles": [
+      "abs"
+    ],
+    "secondaryMuscles": [
+      "hip flexors"
+    ],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": false,
+    "defaultReps": "20\u201330 s",
+    "restSeconds": 30,
+    "cues": [
+      "Low back pressed flat.",
+      "Ribs down, arms and legs long.",
+      "If the back peels up, bend the knees."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Tue"
+    ],
+    "drop": false,
+    "defaultSets": 2,
+    "mediaSlug": "hollow-hold",
+    "demoGif": "media/hollow-hold/demo.gif",
+    "still": "media/hollow-hold/01.jpg",
+    "frames": [
+      "media/hollow-hold/01.jpg",
+      "media/hollow-hold/02.jpg",
+      "media/hollow-hold/03.jpg",
+      "media/hollow-hold/04.jpg",
+      "media/hollow-hold/05.jpg",
+      "media/hollow-hold/06.jpg",
+      "media/hollow-hold/07.jpg",
+      "media/hollow-hold/08.jpg"
+    ],
+    "demoReady": false
+  },
+  {
+    "slug": "side-plank",
+    "name": "Side plank",
+    "primaryMuscles": [
+      "obliques"
+    ],
+    "secondaryMuscles": [
+      "abs",
+      "shoulders"
+    ],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": true,
+    "defaultReps": "30 s",
+    "restSeconds": 30,
+    "cues": [
+      "Bottom elbow under the shoulder.",
+      "Hips stacked. Don't let the top hip roll back.",
+      "Push the floor away."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Tue",
+      "Wed",
+      "Sun"
+    ],
+    "drop": false,
+    "defaultSets": 2,
+    "mediaSlug": "side-plank",
+    "demoGif": "media/side-plank/demo.gif",
+    "still": "media/side-plank/01.jpg",
+    "frames": [
+      "media/side-plank/01.jpg",
+      "media/side-plank/02.jpg",
+      "media/side-plank/03.jpg",
+      "media/side-plank/04.jpg",
+      "media/side-plank/05.jpg",
+      "media/side-plank/06.jpg",
+      "media/side-plank/07.jpg",
+      "media/side-plank/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "lat-stretch-arm-overhead",
+    "name": "Lat stretch, arm overhead",
+    "primaryMuscles": [
+      "lats"
+    ],
+    "secondaryMuscles": [],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": true,
+    "defaultReps": "30 s",
+    "restSeconds": 15,
+    "cues": [
+      "Reach long, then lean slightly away.",
+      "Stop at a stretch along the side of the back.",
+      "Don't shrug the shoulder to the ear."
+    ],
+    "warmup": false,
+    "stretch": true,
+    "finisher": false,
+    "phase": "stretch",
+    "days": [
+      "Tue"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": null,
+    "demoGif": null,
+    "still": null,
+    "frames": [],
+    "demoReady": false
+  },
+  {
+    "slug": "biceps-stretch-arm-on-a-wall",
+    "name": "Biceps stretch, arm on a wall",
+    "primaryMuscles": [
+      "biceps"
+    ],
+    "secondaryMuscles": [],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": true,
+    "defaultReps": "30 s",
+    "restSeconds": 15,
+    "cues": [
+      "Arm straight, palm on the wall.",
+      "Turn the body away until the biceps pull.",
+      "Keep the elbow soft if the front of the shoulder bites."
+    ],
+    "warmup": false,
+    "stretch": true,
+    "finisher": false,
+    "phase": "stretch",
+    "days": [
+      "Tue"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": null,
+    "demoGif": null,
+    "still": null,
+    "frames": [],
+    "demoReady": false
+  },
+  {
+    "slug": "leg-swings-front-to-back",
+    "name": "Leg swings, front to back",
+    "primaryMuscles": [
+      "hamstrings"
+    ],
+    "secondaryMuscles": [
+      "glutes"
+    ],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": true,
+    "defaultReps": "8",
+    "restSeconds": 15,
+    "cues": [
+      "Hold a rack for balance.",
+      "Swing under control. Don't yank the hip.",
+      "Stay tall on the standing leg."
+    ],
+    "warmup": true,
+    "stretch": false,
+    "finisher": false,
+    "phase": "warmup",
+    "days": [
+      "Wed",
+      "Sat"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": null,
+    "demoGif": null,
+    "still": null,
+    "frames": [],
+    "demoReady": false
+  },
+  {
+    "slug": "bodyweight-squat-primer",
+    "name": "Bodyweight squat primer",
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "glutes"
+    ],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": false,
+    "defaultReps": "8",
+    "restSeconds": 15,
+    "cues": [
+      "Sit the hips back and down.",
+      "Knees track over the mid-foot.",
+      "Easy reps. Stop above any knee pinch."
+    ],
+    "warmup": true,
+    "stretch": false,
+    "finisher": false,
+    "phase": "warmup",
+    "days": [
+      "Wed",
+      "Sat"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": null,
+    "demoGif": null,
+    "still": null,
+    "frames": [],
+    "demoReady": false
+  },
+  {
+    "slug": "glute-bridges-easy",
+    "name": "Glute bridges, easy",
+    "primaryMuscles": [
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings"
+    ],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": false,
+    "defaultReps": "8",
+    "restSeconds": 15,
+    "cues": [
+      "Drive through the heels.",
+      "Squeeze the glutes at the top.",
+      "Ribs stay down."
+    ],
+    "warmup": true,
+    "stretch": false,
+    "finisher": false,
+    "phase": "warmup",
+    "days": [
+      "Wed",
+      "Sat"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": null,
+    "demoGif": null,
+    "still": null,
+    "frames": [],
+    "demoReady": false
+  },
+  {
+    "slug": "db-romanian-deadlift",
+    "name": "DB Romanian deadlift",
+    "primaryMuscles": [
+      "hamstrings"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "back"
+    ],
+    "station": "db-standing",
+    "equipment": "Dumbbell",
+    "unilateral": false,
+    "defaultReps": "8\u201310",
+    "restSeconds": 120,
+    "cues": [
+      "Soft knees, hinge at the hips.",
+      "Dumbbells stay close to the legs.",
+      "Stop when the hamstrings pull, then stand tall."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Wed"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "db-romanian-deadlift",
+    "demoGif": "media/db-romanian-deadlift/demo.gif",
+    "still": "media/db-romanian-deadlift/01.jpg",
+    "frames": [
+      "media/db-romanian-deadlift/01.jpg",
+      "media/db-romanian-deadlift/02.jpg",
+      "media/db-romanian-deadlift/03.jpg",
+      "media/db-romanian-deadlift/04.jpg",
+      "media/db-romanian-deadlift/05.jpg",
+      "media/db-romanian-deadlift/06.jpg",
+      "media/db-romanian-deadlift/07.jpg",
+      "media/db-romanian-deadlift/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "pallof-press-cable-mid",
+    "name": "Pallof press (cable, mid)",
+    "primaryMuscles": [
+      "obliques"
+    ],
+    "secondaryMuscles": [],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": true,
+    "defaultReps": "10",
+    "restSeconds": 120,
+    "cues": [
+      "Stand side-on, feet about hip width.",
+      "Press straight out and don't let the cable twist you.",
+      "Ribs stacked over the pelvis."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Wed"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "pallof-press",
+    "demoGif": "media/pallof-press/demo.gif",
+    "still": "media/pallof-press/01.jpg",
+    "frames": [
+      "media/pallof-press/01.jpg",
+      "media/pallof-press/02.jpg",
+      "media/pallof-press/03.jpg",
+      "media/pallof-press/04.jpg",
+      "media/pallof-press/05.jpg",
+      "media/pallof-press/06.jpg",
+      "media/pallof-press/07.jpg",
+      "media/pallof-press/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "leg-extension-3-s-down-pain-free",
+    "name": "Leg extension (3 s down, pain-free)",
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [],
+    "station": "leg-ext",
+    "equipment": "Machine",
+    "unilateral": false,
+    "defaultReps": "12\u201315",
+    "restSeconds": 75,
+    "cues": [
+      "Pad sits just above the ankles.",
+      "Three seconds down, only a pain-free range.",
+      "Don't slam the knees straight."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Wed"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "leg-extension",
+    "demoGif": "media/leg-extension/demo.gif",
+    "still": "media/leg-extension/01.jpg",
+    "frames": [
+      "media/leg-extension/01.jpg",
+      "media/leg-extension/02.jpg",
+      "media/leg-extension/03.jpg",
+      "media/leg-extension/04.jpg",
+      "media/leg-extension/05.jpg",
+      "media/leg-extension/06.jpg",
+      "media/leg-extension/07.jpg",
+      "media/leg-extension/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "seated-leg-curl",
+    "name": "Seated leg curl",
+    "primaryMuscles": [
+      "hamstrings"
+    ],
+    "secondaryMuscles": [],
+    "station": "leg-curl",
+    "equipment": "Machine",
+    "unilateral": false,
+    "defaultReps": "10\u201312",
+    "restSeconds": 75,
+    "cues": [
+      "Pad on the lower calves.",
+      "Curl the heels toward the glutes.",
+      "Hips stay on the seat."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Wed"
+    ],
+    "drop": true,
+    "defaultSets": 3,
+    "mediaSlug": "seated-leg-curl",
+    "demoGif": "media/seated-leg-curl/demo.gif",
+    "still": "media/seated-leg-curl/01.jpg",
+    "frames": [
+      "media/seated-leg-curl/01.jpg",
+      "media/seated-leg-curl/02.jpg",
+      "media/seated-leg-curl/03.jpg",
+      "media/seated-leg-curl/04.jpg",
+      "media/seated-leg-curl/05.jpg",
+      "media/seated-leg-curl/06.jpg",
+      "media/seated-leg-curl/07.jpg",
+      "media/seated-leg-curl/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "hip-thrust-db-or-barbell",
+    "name": "Hip thrust (DB or barbell)",
+    "primaryMuscles": [
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings"
+    ],
+    "station": "hip-thrust",
+    "equipment": "Barbell or dumbbell",
+    "unilateral": false,
+    "defaultReps": "10\u201312",
+    "restSeconds": 75,
+    "cues": [
+      "Upper back on the bench, chin tucked.",
+      "Drive through the heels.",
+      "Squeeze the glutes at the top, ribs down."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Wed"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "hip-thrust",
+    "demoGif": "media/hip-thrust/demo.gif",
+    "still": "media/hip-thrust/01.jpg",
+    "frames": [
+      "media/hip-thrust/01.jpg",
+      "media/hip-thrust/02.jpg",
+      "media/hip-thrust/03.jpg",
+      "media/hip-thrust/04.jpg",
+      "media/hip-thrust/05.jpg",
+      "media/hip-thrust/06.jpg",
+      "media/hip-thrust/07.jpg",
+      "media/hip-thrust/08.jpg"
+    ],
+    "demoReady": false
+  },
+  {
+    "slug": "reverse-crunch-on-bench",
+    "name": "Reverse crunch on bench",
+    "primaryMuscles": [
+      "abs"
+    ],
+    "secondaryMuscles": [
+      "hip flexors"
+    ],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": false,
+    "defaultReps": "10\u201315",
+    "restSeconds": 45,
+    "cues": [
+      "Lift the hips, not just the knees.",
+      "Low back stays down.",
+      "Lower with control."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Wed"
+    ],
+    "drop": false,
+    "defaultSets": 2,
+    "mediaSlug": "reverse-crunch",
+    "demoGif": "media/reverse-crunch/demo.gif",
+    "still": "media/reverse-crunch/01.jpg",
+    "frames": [
+      "media/reverse-crunch/01.jpg",
+      "media/reverse-crunch/02.jpg",
+      "media/reverse-crunch/03.jpg",
+      "media/reverse-crunch/04.jpg",
+      "media/reverse-crunch/05.jpg",
+      "media/reverse-crunch/06.jpg",
+      "media/reverse-crunch/07.jpg",
+      "media/reverse-crunch/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "hip-flexor-stretch-half-kneel",
+    "name": "Hip flexor stretch, half kneel",
+    "primaryMuscles": [
+      "hip flexors"
+    ],
+    "secondaryMuscles": [],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": true,
+    "defaultReps": "30 s",
+    "restSeconds": 15,
+    "cues": [
+      "Back knee down, pelvis tucked.",
+      "Squeeze the glute of the kneeling leg.",
+      "Tall chest. Don't arch the low back."
+    ],
+    "warmup": false,
+    "stretch": true,
+    "finisher": false,
+    "phase": "stretch",
+    "days": [
+      "Wed",
+      "Sat",
+      "Sun"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": null,
+    "demoGif": null,
+    "still": null,
+    "frames": [],
+    "demoReady": false
+  },
+  {
+    "slug": "hamstring-stretch-one-leg-long",
+    "name": "Hamstring stretch, one leg long",
+    "primaryMuscles": [
+      "hamstrings"
+    ],
+    "secondaryMuscles": [],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": true,
+    "defaultReps": "30 s",
+    "restSeconds": 15,
+    "cues": [
+      "Hinge from the hips, back long.",
+      "Stop at a strong pull, not a stab.",
+      "Don't bounce."
+    ],
+    "warmup": false,
+    "stretch": true,
+    "finisher": false,
+    "phase": "stretch",
+    "days": [
+      "Wed",
+      "Sat"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": null,
+    "demoGif": null,
+    "still": null,
+    "frames": [],
+    "demoReady": false
+  },
+  {
+    "slug": "calf-stretch-on-a-step",
+    "name": "Calf stretch on a step",
+    "primaryMuscles": [
+      "calves"
+    ],
+    "secondaryMuscles": [],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": true,
+    "defaultReps": "30 s",
+    "restSeconds": 15,
+    "cues": [
+      "Heel drops, knee straight.",
+      "Then soften the knee for a second stretch.",
+      "Hold. Don't bounce."
+    ],
+    "warmup": false,
+    "stretch": true,
+    "finisher": false,
+    "phase": "stretch",
+    "days": [
+      "Wed",
+      "Sat"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": null,
+    "demoGif": null,
+    "still": null,
+    "frames": [],
+    "demoReady": false
+  },
+  {
+    "slug": "flat-db-press",
+    "name": "Flat DB press",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "shoulders",
+      "triceps"
+    ],
+    "station": "db-flat",
+    "equipment": "Dumbbell",
+    "unilateral": false,
+    "defaultReps": "8\u201312",
+    "restSeconds": 90,
+    "cues": [
+      "Feet planted.",
+      "Lower until the dumbbells are beside the chest.",
+      "Elbows about 45 degrees from your sides."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Thu"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "flat-db-press",
+    "demoGif": "media/flat-db-press/demo.gif",
+    "still": "media/flat-db-press/01.jpg",
+    "frames": [
+      "media/flat-db-press/01.jpg",
+      "media/flat-db-press/02.jpg",
+      "media/flat-db-press/03.jpg",
+      "media/flat-db-press/04.jpg",
+      "media/flat-db-press/05.jpg",
+      "media/flat-db-press/06.jpg",
+      "media/flat-db-press/07.jpg",
+      "media/flat-db-press/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "single-arm-cable-row-mid",
+    "name": "Single-arm cable row (mid)",
+    "primaryMuscles": [
+      "back"
+    ],
+    "secondaryMuscles": [
+      "biceps"
+    ],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": true,
+    "defaultReps": "10\u201312",
+    "restSeconds": 90,
+    "cues": [
+      "Brace so the cable doesn't twist you.",
+      "Pull the elbow past the ribs.",
+      "Reach long on the way back."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Thu"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "single-arm-cable-row",
+    "demoGif": "media/single-arm-cable-row/demo.gif",
+    "still": "media/single-arm-cable-row/01.jpg",
+    "frames": [
+      "media/single-arm-cable-row/01.jpg",
+      "media/single-arm-cable-row/02.jpg",
+      "media/single-arm-cable-row/03.jpg",
+      "media/single-arm-cable-row/04.jpg",
+      "media/single-arm-cable-row/05.jpg",
+      "media/single-arm-cable-row/06.jpg",
+      "media/single-arm-cable-row/07.jpg",
+      "media/single-arm-cable-row/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "seated-db-shoulder-press",
+    "name": "Seated DB shoulder press",
+    "primaryMuscles": [
+      "shoulders"
+    ],
+    "secondaryMuscles": [
+      "triceps"
+    ],
+    "station": "db-shoulder",
+    "equipment": "Dumbbell",
+    "unilateral": false,
+    "defaultReps": "8\u201312",
+    "restSeconds": 90,
+    "cues": [
+      "Start with the dumbbells at ear height.",
+      "Press up without shrugging.",
+      "Don't bang the weights together."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Thu"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "seated-db-shoulder-press",
+    "demoGif": "media/seated-db-shoulder-press/demo.gif",
+    "still": "media/seated-db-shoulder-press/01.jpg",
+    "frames": [
+      "media/seated-db-shoulder-press/01.jpg",
+      "media/seated-db-shoulder-press/02.jpg",
+      "media/seated-db-shoulder-press/03.jpg",
+      "media/seated-db-shoulder-press/04.jpg",
+      "media/seated-db-shoulder-press/05.jpg",
+      "media/seated-db-shoulder-press/06.jpg",
+      "media/seated-db-shoulder-press/07.jpg",
+      "media/seated-db-shoulder-press/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "neutral-grip-lat-pulldown",
+    "name": "Neutral-grip lat pulldown",
+    "primaryMuscles": [
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "biceps"
+    ],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": false,
+    "defaultReps": "10\u201312",
+    "restSeconds": 90,
+    "cues": [
+      "Palms face each other.",
+      "Pull the elbows down toward the pockets.",
+      "Chest stays up."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Thu"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "neutral-grip-lat-pulldown",
+    "demoGif": "media/neutral-grip-lat-pulldown/demo.gif",
+    "still": "media/neutral-grip-lat-pulldown/01.jpg",
+    "frames": [
+      "media/neutral-grip-lat-pulldown/01.jpg",
+      "media/neutral-grip-lat-pulldown/02.jpg",
+      "media/neutral-grip-lat-pulldown/03.jpg",
+      "media/neutral-grip-lat-pulldown/04.jpg",
+      "media/neutral-grip-lat-pulldown/05.jpg",
+      "media/neutral-grip-lat-pulldown/06.jpg",
+      "media/neutral-grip-lat-pulldown/07.jpg",
+      "media/neutral-grip-lat-pulldown/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "reverse-crunch",
+    "name": "Reverse crunch",
+    "primaryMuscles": [
+      "abs"
+    ],
+    "secondaryMuscles": [
+      "hip flexors"
+    ],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": false,
+    "defaultReps": "10\u201315",
+    "restSeconds": 60,
+    "cues": [
+      "Lift the hips, not just the knees.",
+      "Low back stays down.",
+      "Lower with control."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Thu"
+    ],
+    "drop": false,
+    "defaultSets": 2,
+    "mediaSlug": "reverse-crunch",
+    "demoGif": "media/reverse-crunch/demo.gif",
+    "still": "media/reverse-crunch/01.jpg",
+    "frames": [
+      "media/reverse-crunch/01.jpg",
+      "media/reverse-crunch/02.jpg",
+      "media/reverse-crunch/03.jpg",
+      "media/reverse-crunch/04.jpg",
+      "media/reverse-crunch/05.jpg",
+      "media/reverse-crunch/06.jpg",
+      "media/reverse-crunch/07.jpg",
+      "media/reverse-crunch/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "reverse-cable-fly-high",
+    "name": "Reverse cable fly (high)",
+    "primaryMuscles": [
+      "rear delts"
+    ],
+    "secondaryMuscles": [
+      "back"
+    ],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": false,
+    "defaultReps": "12\u201315",
+    "restSeconds": 60,
+    "cues": [
+      "Soft elbows, arms almost straight.",
+      "Sweep wide until the hands line up with the shoulders.",
+      "Squeeze the rear delts. Don't shrug."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Thu"
+    ],
+    "drop": false,
+    "defaultSets": 2,
+    "mediaSlug": "reverse-cable-fly",
+    "demoGif": "media/reverse-cable-fly/demo.gif",
+    "still": "media/reverse-cable-fly/01.jpg",
+    "frames": [
+      "media/reverse-cable-fly/01.jpg",
+      "media/reverse-cable-fly/02.jpg",
+      "media/reverse-cable-fly/03.jpg",
+      "media/reverse-cable-fly/04.jpg",
+      "media/reverse-cable-fly/05.jpg",
+      "media/reverse-cable-fly/06.jpg",
+      "media/reverse-cable-fly/07.jpg",
+      "media/reverse-cable-fly/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "cable-curl",
+    "name": "Cable curl",
+    "primaryMuscles": [
+      "biceps"
+    ],
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": false,
+    "defaultReps": "12\u201315",
+    "restSeconds": 45,
+    "cues": [
+      "Elbows pinned in front of the hips.",
+      "Curl the bar. Don't lean back.",
+      "Lower until the elbows are straight."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Thu"
+    ],
+    "drop": false,
+    "defaultSets": 2,
+    "mediaSlug": "cable-curl",
+    "demoGif": "media/cable-curl/demo.gif",
+    "still": "media/cable-curl/01.jpg",
+    "frames": [
+      "media/cable-curl/01.jpg",
+      "media/cable-curl/02.jpg",
+      "media/cable-curl/03.jpg",
+      "media/cable-curl/04.jpg",
+      "media/cable-curl/05.jpg",
+      "media/cable-curl/06.jpg",
+      "media/cable-curl/07.jpg",
+      "media/cable-curl/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "rope-pushdown",
+    "name": "Rope pushdown",
+    "primaryMuscles": [
+      "triceps"
+    ],
+    "secondaryMuscles": [],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": false,
+    "defaultReps": "12\u201315",
+    "restSeconds": 45,
+    "cues": [
+      "Split the rope at the bottom.",
+      "Elbows glued to your sides.",
+      "Lock out, then come back under control."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Thu"
+    ],
+    "drop": false,
+    "defaultSets": 2,
+    "mediaSlug": "rope-pushdown",
+    "demoGif": "media/rope-pushdown/demo.gif",
+    "still": "media/rope-pushdown/01.jpg",
+    "frames": [
+      "media/rope-pushdown/01.jpg",
+      "media/rope-pushdown/02.jpg",
+      "media/rope-pushdown/03.jpg",
+      "media/rope-pushdown/04.jpg",
+      "media/rope-pushdown/05.jpg",
+      "media/rope-pushdown/06.jpg",
+      "media/rope-pushdown/07.jpg",
+      "media/rope-pushdown/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "cable-woodchop-high-to-low",
+    "name": "Cable woodchop (high to low)",
+    "primaryMuscles": [
+      "obliques"
+    ],
+    "secondaryMuscles": [
+      "abs"
+    ],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": true,
+    "defaultReps": "10",
+    "restSeconds": 30,
+    "cues": [
+      "Pivot the back foot.",
+      "Arms stay long. Rotate from the trunk.",
+      "Finish with the hands near the opposite hip."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Thu"
+    ],
+    "drop": false,
+    "defaultSets": 2,
+    "mediaSlug": "cable-woodchop",
+    "demoGif": "media/cable-woodchop/demo.gif",
+    "still": "media/cable-woodchop/01.jpg",
+    "frames": [
+      "media/cable-woodchop/01.jpg",
+      "media/cable-woodchop/02.jpg",
+      "media/cable-woodchop/03.jpg",
+      "media/cable-woodchop/04.jpg",
+      "media/cable-woodchop/05.jpg",
+      "media/cable-woodchop/06.jpg",
+      "media/cable-woodchop/07.jpg",
+      "media/cable-woodchop/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "db-curl",
+    "name": "DB curl",
+    "primaryMuscles": [
+      "biceps"
+    ],
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "station": "db-bench",
+    "equipment": "Dumbbell",
+    "unilateral": false,
+    "defaultReps": "12\u201315",
+    "restSeconds": 60,
+    "cues": [
+      "Elbows stay under the shoulders.",
+      "Palms up. No hip swing.",
+      "Lower until the elbows are straight."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Fri"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "db-curl",
+    "demoGif": "media/db-curl/demo.gif",
+    "still": "media/db-curl/01.jpg",
+    "frames": [
+      "media/db-curl/01.jpg",
+      "media/db-curl/02.jpg",
+      "media/db-curl/03.jpg",
+      "media/db-curl/04.jpg",
+      "media/db-curl/05.jpg",
+      "media/db-curl/06.jpg",
+      "media/db-curl/07.jpg",
+      "media/db-curl/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "db-skull-crusher",
+    "name": "DB skull crusher",
+    "primaryMuscles": [
+      "triceps"
+    ],
+    "secondaryMuscles": [],
+    "station": "db-bench",
+    "equipment": "Dumbbell",
+    "unilateral": false,
+    "defaultReps": "12\u201315",
+    "restSeconds": 60,
+    "cues": [
+      "Upper arms stay vertical.",
+      "Lower the dumbbells beside the head, not onto it.",
+      "Elbows point at the ceiling."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Fri"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "db-skull-crusher",
+    "demoGif": "media/db-skull-crusher/demo.gif",
+    "still": "media/db-skull-crusher/01.jpg",
+    "frames": [
+      "media/db-skull-crusher/01.jpg",
+      "media/db-skull-crusher/02.jpg",
+      "media/db-skull-crusher/03.jpg",
+      "media/db-skull-crusher/04.jpg",
+      "media/db-skull-crusher/05.jpg",
+      "media/db-skull-crusher/06.jpg",
+      "media/db-skull-crusher/07.jpg",
+      "media/db-skull-crusher/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "joint-circles-easy-range",
+    "name": "Joint circles, easy range",
+    "primaryMuscles": [],
+    "secondaryMuscles": [],
+    "station": "none",
+    "equipment": "None",
+    "unilateral": false,
+    "defaultReps": "10 min",
+    "restSeconds": 15,
+    "cues": [
+      "Move one joint at a time through an easy range.",
+      "Ankles, hips, then shoulders.",
+      "Nothing should sting. Shrink the circle if it does."
+    ],
+    "warmup": false,
+    "stretch": true,
+    "finisher": false,
+    "phase": "stretch",
+    "days": [
+      "Fri"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": null,
+    "demoGif": null,
+    "still": null,
+    "frames": [],
+    "demoReady": false
+  },
+  {
+    "slug": "bodyweight-box-squats-empty-bar-x10-light-sets",
+    "name": "Bodyweight box squats, empty bar x10, light sets",
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "glutes"
+    ],
+    "station": "barbell",
+    "equipment": "Barbell",
+    "unilateral": false,
+    "defaultReps": "6\u20138 min",
+    "restSeconds": 60,
+    "cues": [
+      "Sit back to the box. Don't drop.",
+      "Knees track over the mid-foot.",
+      "Stand by pushing the floor away."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Sat"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": "barbell-box-squat",
+    "demoGif": "media/barbell-box-squat/demo.gif",
+    "still": "media/barbell-box-squat/01.jpg",
+    "frames": [
+      "media/barbell-box-squat/01.jpg",
+      "media/barbell-box-squat/02.jpg",
+      "media/barbell-box-squat/03.jpg",
+      "media/barbell-box-squat/04.jpg",
+      "media/barbell-box-squat/05.jpg",
+      "media/barbell-box-squat/06.jpg",
+      "media/barbell-box-squat/07.jpg",
+      "media/barbell-box-squat/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "barbell-box-squat-box-at-or-above-parallel",
+    "name": "Barbell box squat (box at or above parallel)",
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "hamstrings"
+    ],
+    "station": "barbell",
+    "equipment": "Barbell",
+    "unilateral": false,
+    "defaultReps": "6\u20138",
+    "restSeconds": 150,
+    "cues": [
+      "Box at or above parallel.",
+      "Brace before you unrack.",
+      "Touch the box lightly, then stand."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Sat"
+    ],
+    "drop": false,
+    "defaultSets": 4,
+    "mediaSlug": "barbell-box-squat",
+    "demoGif": "media/barbell-box-squat/demo.gif",
+    "still": "media/barbell-box-squat/01.jpg",
+    "frames": [
+      "media/barbell-box-squat/01.jpg",
+      "media/barbell-box-squat/02.jpg",
+      "media/barbell-box-squat/03.jpg",
+      "media/barbell-box-squat/04.jpg",
+      "media/barbell-box-squat/05.jpg",
+      "media/barbell-box-squat/06.jpg",
+      "media/barbell-box-squat/07.jpg",
+      "media/barbell-box-squat/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "leg-extension",
+    "name": "Leg extension",
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [],
+    "station": "leg-ext",
+    "equipment": "Machine",
+    "unilateral": false,
+    "defaultReps": "12\u201315",
+    "restSeconds": 75,
+    "cues": [
+      "Pad sits just above the ankles.",
+      "Squeeze the quads at the top.",
+      "Don't slam the knees straight."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Sat"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "leg-extension",
+    "demoGif": "media/leg-extension/demo.gif",
+    "still": "media/leg-extension/01.jpg",
+    "frames": [
+      "media/leg-extension/01.jpg",
+      "media/leg-extension/02.jpg",
+      "media/leg-extension/03.jpg",
+      "media/leg-extension/04.jpg",
+      "media/leg-extension/05.jpg",
+      "media/leg-extension/06.jpg",
+      "media/leg-extension/07.jpg",
+      "media/leg-extension/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "band-lying-leg-curl",
+    "name": "Band lying leg curl",
+    "primaryMuscles": [
+      "hamstrings"
+    ],
+    "secondaryMuscles": [],
+    "station": "band",
+    "equipment": "Band",
+    "unilateral": false,
+    "defaultReps": "15\u201320",
+    "restSeconds": 75,
+    "cues": [
+      "Hips stay down.",
+      "Curl the heels toward the glutes.",
+      "Control the band on the way back."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Sat"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "band-lying-leg-curl",
+    "demoGif": "media/band-lying-leg-curl/demo.gif",
+    "still": "media/band-lying-leg-curl/01.jpg",
+    "frames": [
+      "media/band-lying-leg-curl/01.jpg",
+      "media/band-lying-leg-curl/02.jpg",
+      "media/band-lying-leg-curl/03.jpg",
+      "media/band-lying-leg-curl/04.jpg",
+      "media/band-lying-leg-curl/05.jpg",
+      "media/band-lying-leg-curl/06.jpg",
+      "media/band-lying-leg-curl/07.jpg",
+      "media/band-lying-leg-curl/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "cable-pull-through-rope",
+    "name": "Cable pull-through (rope)",
+    "primaryMuscles": [
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings"
+    ],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": false,
+    "defaultReps": "12\u201315",
+    "restSeconds": 60,
+    "cues": [
+      "Face away, rope between the legs.",
+      "Hinge, then squeeze the glutes to stand.",
+      "Arms stay straight. This is a hip move."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Sat"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "cable-pull-through",
+    "demoGif": "media/cable-pull-through/demo.gif",
+    "still": "media/cable-pull-through/01.jpg",
+    "frames": [
+      "media/cable-pull-through/01.jpg",
+      "media/cable-pull-through/02.jpg",
+      "media/cable-pull-through/03.jpg",
+      "media/cable-pull-through/04.jpg",
+      "media/cable-pull-through/05.jpg",
+      "media/cable-pull-through/06.jpg",
+      "media/cable-pull-through/07.jpg",
+      "media/cable-pull-through/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "seated-calf-raise-db-on-knees",
+    "name": "Seated calf raise (DB on knees)",
+    "primaryMuscles": [
+      "calves"
+    ],
+    "secondaryMuscles": [
+      "quads"
+    ],
+    "station": "db-seated",
+    "equipment": "Dumbbell",
+    "unilateral": false,
+    "defaultReps": "15",
+    "restSeconds": 60,
+    "cues": [
+      "Dumbbells rest on the knees.",
+      "Full stretch at the bottom.",
+      "Pause at the top."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Sat"
+    ],
+    "drop": false,
+    "defaultSets": 3,
+    "mediaSlug": "seated-calf-raise",
+    "demoGif": "media/seated-calf-raise/demo.gif",
+    "still": "media/seated-calf-raise/01.jpg",
+    "frames": [
+      "media/seated-calf-raise/01.jpg",
+      "media/seated-calf-raise/02.jpg",
+      "media/seated-calf-raise/03.jpg",
+      "media/seated-calf-raise/04.jpg",
+      "media/seated-calf-raise/05.jpg",
+      "media/seated-calf-raise/06.jpg",
+      "media/seated-calf-raise/07.jpg",
+      "media/seated-calf-raise/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "pallof-press",
+    "name": "Pallof press",
+    "primaryMuscles": [
+      "obliques"
+    ],
+    "secondaryMuscles": [],
+    "station": "cable",
+    "equipment": "Cable",
+    "unilateral": true,
+    "defaultReps": "10",
+    "restSeconds": 30,
+    "cues": [
+      "Stand side-on, feet about hip width.",
+      "Press straight out and don't let the cable twist you.",
+      "Ribs stacked over the pelvis."
+    ],
+    "warmup": false,
+    "stretch": false,
+    "finisher": false,
+    "phase": "work",
+    "days": [
+      "Sat"
+    ],
+    "drop": false,
+    "defaultSets": 2,
+    "mediaSlug": "pallof-press",
+    "demoGif": "media/pallof-press/demo.gif",
+    "still": "media/pallof-press/01.jpg",
+    "frames": [
+      "media/pallof-press/01.jpg",
+      "media/pallof-press/02.jpg",
+      "media/pallof-press/03.jpg",
+      "media/pallof-press/04.jpg",
+      "media/pallof-press/05.jpg",
+      "media/pallof-press/06.jpg",
+      "media/pallof-press/07.jpg",
+      "media/pallof-press/08.jpg"
+    ],
+    "demoReady": true
+  },
+  {
+    "slug": "easy-march-in-place",
+    "name": "Easy march in place",
+    "primaryMuscles": [
+      "calves"
+    ],
+    "secondaryMuscles": [],
+    "station": "floor",
+    "equipment": "Bodyweight",
+    "unilateral": false,
+    "defaultReps": "45 s",
+    "restSeconds": 15,
+    "cues": [
+      "Lift the knees only as high as is easy.",
+      "Arms swing naturally.",
+      "Quiet feet."
+    ],
+    "warmup": true,
+    "stretch": false,
+    "finisher": false,
+    "phase": "warmup",
+    "days": [
+      "Sun"
+    ],
+    "drop": false,
+    "defaultSets": 1,
+    "mediaSlug": null,
+    "demoGif": null,
+    "still": null,
+    "frames": [],
+    "demoReady": false
+  }
+]
