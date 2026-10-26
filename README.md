@@ -28,18 +28,6 @@ The published address is https://jordanshipwreck.github.io/fitty/
 
 ## Google Drive sync
 
-Sync stays off until a client id is set. `site/index.html` contains:
+`site/index.html` sets `window.FITTY_GOOGLE_CLIENT_ID`. The app passes that id to Google Identity Services (`accounts.google.com/gsi/client`, `initTokenClient`) with scope `https://www.googleapis.com/auth/drive.file`. Sync writes `Fitty-Cent/fitty-workout.json`.
 
-```html
-window.FITTY_GOOGLE_CLIENT_ID = "";
-```
-
-The built app reads that value (`googleClientId`). JSON export works with it empty.
-
-To turn Drive sync on later:
-
-1. In Google Cloud Console, create an OAuth client of type **Web application**.
-2. Add authorized JavaScript origin `https://jordanshipwreck.github.io` (origin only, no `/fitty` path).
-3. Paste the client id into `window.FITTY_GOOGLE_CLIENT_ID` and push to `main`.
-
-The Drive file is `Fitty-Cent/fitty-workout.json`, using the `drive.file` scope.
+The OAuth client is a web client. Its authorized JavaScript origin is `https://jordanshipwreck.github.io` (no `/fitty` path). The consent screen is in Testing, with `jordanshipwreck@gmail.com` as a test user. Settings shows **Sign in with Google**, which requests that scope and then uploads the log.

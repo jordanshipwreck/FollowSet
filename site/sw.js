@@ -1,5 +1,5 @@
 /* Fitty-Cent offline shell. Scope is /fitty/ (the script lives in that directory). */
-const CACHE = "fitty-shell-v1";
+const CACHE = "fitty-shell-v2";
 const BASE = "/fitty/";
 const SHELL = [
   `${BASE}`,
