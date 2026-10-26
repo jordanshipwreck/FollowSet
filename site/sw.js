@@ -1,6 +1,6 @@
 /* Followset offline shell. Scope follows this script's directory, so /fitty/ and /FollowSet/ both work.
    Exercise demo GIFs are not precached. The fetch handler stores each one the first time it is viewed. */
-const CACHE = "fitty-shell-v4";
+const CACHE = "fitty-shell-v5";
 const SCOPE = new URL("./", self.location);
 const SHELL = [
   new URL("./", self.location).href,

@@ -29,11 +29,12 @@
     ],
     "drop": false,
     "defaultSets": 1,
-    "mediaSlug": null,
+    "mediaSlug": "arm-circles",
     "demoGif": null,
-    "still": null,
+    "still": "media/arm-circles/placeholder.svg",
     "frames": [],
-    "demoReady": false
+    "demoReady": false,
+    "placeholder": true
   },
   {
     "slug": "wall-slides",
@@ -64,11 +65,12 @@
     ],
     "drop": false,
     "defaultSets": 1,
-    "mediaSlug": null,
+    "mediaSlug": "wall-slides",
     "demoGif": null,
-    "still": null,
+    "still": "media/wall-slides/placeholder.svg",
     "frames": [],
-    "demoReady": false
+    "demoReady": false,
+    "placeholder": true
   },
   {
     "slug": "incline-walk-primer-easy-pace",
@@ -571,11 +573,12 @@
     ],
     "drop": false,
     "defaultSets": 1,
-    "mediaSlug": null,
+    "mediaSlug": "doorway-pec-stretch",
     "demoGif": null,
-    "still": null,
+    "still": "media/doorway-pec-stretch/placeholder.svg",
     "frames": [],
-    "demoReady": false
+    "demoReady": false,
+    "placeholder": true
   },
   {
     "slug": "triceps-stretch-behind-the-head",
@@ -605,11 +608,12 @@
     ],
     "drop": false,
     "defaultSets": 1,
-    "mediaSlug": null,
+    "mediaSlug": "triceps-stretch-behind-the-head",
     "demoGif": null,
-    "still": null,
+    "still": "media/triceps-stretch-behind-the-head/placeholder.svg",
     "frames": [],
-    "demoReady": false
+    "demoReady": false,
+    "placeholder": true
   },
   {
     "slug": "chest-opener-hands-clasped-behind",
@@ -643,11 +647,12 @@
     ],
     "drop": false,
     "defaultSets": 1,
-    "mediaSlug": null,
+    "mediaSlug": "chest-opener-hands-clasped-behind",
     "demoGif": null,
-    "still": null,
+    "still": "media/chest-opener-hands-clasped-behind/placeholder.svg",
     "frames": [],
-    "demoReady": false
+    "demoReady": false,
+    "placeholder": true
   },
   {
     "slug": "scapular-squeezes",
@@ -678,11 +683,12 @@
     ],
     "drop": false,
     "defaultSets": 1,
-    "mediaSlug": null,
+    "mediaSlug": "scapular-squeezes",
     "demoGif": null,
-    "still": null,
+    "still": "media/scapular-squeezes/placeholder.svg",
     "frames": [],
-    "demoReady": false
+    "demoReady": false,
+    "placeholder": true
   },
   {
     "slug": "lat-pulldown-high-pulley",
@@ -1146,11 +1152,12 @@
     ],
     "drop": false,
     "defaultSets": 1,
-    "mediaSlug": null,
+    "mediaSlug": "lat-stretch-arm-overhead",
     "demoGif": null,
-    "still": null,
+    "still": "media/lat-stretch-arm-overhead/placeholder.svg",
     "frames": [],
-    "demoReady": false
+    "demoReady": false,
+    "placeholder": true
   },
   {
     "slug": "biceps-stretch-arm-on-a-wall",
@@ -1178,11 +1185,12 @@
     ],
     "drop": false,
     "defaultSets": 1,
-    "mediaSlug": null,
+    "mediaSlug": "biceps-stretch-arm-on-a-wall",
     "demoGif": null,
-    "still": null,
+    "still": "media/biceps-stretch-arm-on-a-wall/placeholder.svg",
     "frames": [],
-    "demoReady": false
+    "demoReady": false,
+    "placeholder": true
   },
   {
     "slug": "leg-swings-front-to-back",
@@ -1213,11 +1221,12 @@
     ],
     "drop": false,
     "defaultSets": 1,
-    "mediaSlug": null,
+    "mediaSlug": "leg-swings-front-to-back",
     "demoGif": null,
-    "still": null,
+    "still": "media/leg-swings-front-to-back/placeholder.svg",
     "frames": [],
-    "demoReady": false
+    "demoReady": false,
+    "placeholder": true
   },
   {
     "slug": "bodyweight-squat-primer",
@@ -1248,11 +1257,12 @@
     ],
     "drop": false,
     "defaultSets": 1,
-    "mediaSlug": null,
+    "mediaSlug": "bodyweight-squat-primer",
     "demoGif": null,
-    "still": null,
+    "still": "media/bodyweight-squat-primer/placeholder.svg",
     "frames": [],
-    "demoReady": false
+    "demoReady": false,
+    "placeholder": true
   },
   {
     "slug": "glute-bridges-easy",
@@ -1283,11 +1293,12 @@
     ],
     "drop": false,
     "defaultSets": 1,
-    "mediaSlug": null,
+    "mediaSlug": "glute-bridges-easy",
     "demoGif": null,
-    "still": null,
+    "still": "media/glute-bridges-easy/placeholder.svg",
     "frames": [],
-    "demoReady": false
+    "demoReady": false,
+    "placeholder": true
   },
   {
     "slug": "db-romanian-deadlift",
@@ -1570,11 +1581,12 @@
     ],
     "drop": false,
     "defaultSets": 1,
-    "mediaSlug": null,
+    "mediaSlug": "hip-flexor-stretch-half-kneel",
     "demoGif": null,
-    "still": null,
+    "still": "media/hip-flexor-stretch-half-kneel/placeholder.svg",
     "frames": [],
-    "demoReady": false
+    "demoReady": false,
+    "placeholder": true
   },
   {
     "slug": "hamstring-stretch-one-leg-long",
@@ -1603,11 +1615,12 @@
     ],
     "drop": false,
     "defaultSets": 1,
-    "mediaSlug": null,
+    "mediaSlug": "hamstring-stretch-one-leg-long",
     "demoGif": null,
-    "still": null,
+    "still": "media/hamstring-stretch-one-leg-long/placeholder.svg",
     "frames": [],
-    "demoReady": false
+    "demoReady": false,
+    "placeholder": true
   },
   {
     "slug": "calf-stretch-on-a-step",
@@ -1636,11 +1649,12 @@
     ],
     "drop": false,
     "defaultSets": 1,
-    "mediaSlug": null,
+    "mediaSlug": "calf-stretch-on-a-step",
     "demoGif": null,
-    "still": null,
+    "still": "media/calf-stretch-on-a-step/placeholder.svg",
     "frames": [],
-    "demoReady": false
+    "demoReady": false,
+    "placeholder": true
   },
   {
     "slug": "flat-db-press",
@@ -2136,11 +2150,12 @@
     ],
     "drop": false,
     "defaultSets": 1,
-    "mediaSlug": null,
+    "mediaSlug": "joint-circles-easy-range",
     "demoGif": null,
-    "still": null,
+    "still": "media/joint-circles-easy-range/placeholder.svg",
     "frames": [],
-    "demoReady": false
+    "demoReady": false,
+    "placeholder": true
   },
   {
     "slug": "bodyweight-box-squats-empty-bar-x10-light-sets",
@@ -2464,10 +2479,11 @@
     ],
     "drop": false,
     "defaultSets": 1,
-    "mediaSlug": null,
+    "mediaSlug": "easy-march-in-place",
     "demoGif": null,
-    "still": null,
+    "still": "media/easy-march-in-place/placeholder.svg",
     "frames": [],
-    "demoReady": false
+    "demoReady": false,
+    "placeholder": true
   }
 ]

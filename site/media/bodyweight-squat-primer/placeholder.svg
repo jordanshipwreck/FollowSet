@@ -1,0 +1,17 @@
+<svg width="480" height="480" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img">
+  <rect width="480" height="480" fill="#08090b"/>
+  <rect x="28" y="28" width="424" height="424" rx="28" fill="#14161b" stroke="#d6ff3c" stroke-opacity="0.35"/>
+  <text x="52" y="78" fill="#d6ff3c" font-family="ui-sans-serif,system-ui,sans-serif" font-size="22" font-weight="700" letter-spacing="2">WARM-UP</text>
+  
+  <g fill="none" stroke="#d6ff3c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="240" cy="150" r="18" fill="#14161b"/>
+    <path d="M240 168 v40"/>
+    <path d="M240 190 l-46 8 M240 190 l46 8"/>
+    <path d="M240 208 l-40 36"/>
+    <path d="M200 244 l-8 40"/>
+    <path d="M240 208 l40 36"/>
+    <path d="M280 244 l10 40"/>
+  </g>
+  <text x="52" y="400" fill="#f4f1ea" font-family="ui-sans-serif,system-ui,sans-serif" font-size="28" font-weight="700">SQUAT PRIMER</text>
+  <text x="52" y="428" fill="#9b968c" font-family="ui-sans-serif,system-ui,sans-serif" font-size="16">Illustration · follow the cues</text>
+</svg>

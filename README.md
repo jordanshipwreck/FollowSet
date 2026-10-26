@@ -2,17 +2,18 @@
 
 Workout PWA for the week of Oct 26–Nov 1, 2026. The on-screen name is Followset. The per-muscle score is still called Gains Grade.
 
-The repo is `jordanshipwreck/FollowSet`. GitHub Pages will serve it at https://jordanshipwreck.github.io/FollowSet/ once the project site follows the rename. https://jordanshipwreck.github.io/fitty/ keeps working while the old path is in place. The manifest, service worker, and asset URLs are relative (`./`), so either base path loads the same build.
+The repo is `jordanshipwreck/FollowSet`. GitHub Pages serves it at https://jordanshipwreck.github.io/FollowSet/. The manifest, service worker, and asset URLs are relative (`./`).
 
 ## What is in this repo
 
 The Vite app in the private Origin repo (`jordan-d1m1b/fitty`, main) was not reachable from the environment that published this site (Origin CLI had no `CURSOR_AUTH_TOKEN`). `site/` is the single-file v2 build, with images inlined, plus:
 
 - `manifest.webmanifest` — `start_url` and `scope` are `./`
-- `sw.js` — offline shell (`fitty-shell-v4`), registered with scope `./`
+- `sw.js` — offline shell (`fitty-shell-v5`), registered with scope `./`
 - `exercises.json` — one entry per exercise. The app’s Exercise Library reads this file.
 - `media/<slug>/01.jpg` — the still frame extracted from the build. Frames `02.jpg`–`08.jpg` are catalog paths for later swaps.
 - `media/<slug>/demo.gif` — 29 demo animations, loaded by relative path when that exercise is on screen. They are not inlined in `index.html`. The service worker caches each GIF the first time it is shown. Nine lifts, plus the incline walk, still use `01.jpg` because no GIF was supplied for them.
+- `media/<slug>/placeholder.svg` — illustration card for the 16 warm-ups and stretches that have no photo yet. The Now card and the Exercise Library show that card at full width.
 - `icon-192.png`, `icon-512.png`, and `apple-touch-icon.png`
 
 `catalog/exercises.csv` is the same catalog in spreadsheet form. It is not part of the Pages upload.
