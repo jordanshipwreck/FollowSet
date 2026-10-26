@@ -9,7 +9,7 @@ The repo is `jordanshipwreck/FollowSet`. GitHub Pages serves it at https://jorda
 The Vite app in the private Origin repo (`jordan-d1m1b/fitty`, main) was not reachable from the environment that published this site (Origin CLI had no `CURSOR_AUTH_TOKEN`). `site/` is the single-file v2 build, with images inlined, plus:
 
 - `manifest.webmanifest` — `start_url` and `scope` are `/FollowSet/`
-- `sw.js` — offline shell (`fitty-shell-v7`), registered with scope `/FollowSet/`. A navigation whose cached shell is missing falls back to the network, then to a visible message. Activating this worker deletes older `fitty-shell` caches.
+- `sw.js` — offline shell (`fitty-shell-v8`), registered with scope `/FollowSet/`. A navigation waits at most 4 seconds for the network, then uses the cached shell, then a visible message. Activating this worker deletes older `fitty-shell` caches. It does not claim the open page and it does not reload on `controllerchange`.
 - `exercises.json` — one entry per exercise. The app’s Exercise Library reads this file.
 - `media/<slug>/01.jpg` — the still frame extracted from the build. Frames `02.jpg`–`08.jpg` are catalog paths for later swaps.
 - `media/<slug>/demo.gif` — 29 demo animations, loaded by relative path when that exercise is on screen. They are not inlined in `index.html`. The service worker caches each GIF the first time it is shown. Nine lifts, plus the incline walk, still use `01.jpg` because no GIF was supplied for them.

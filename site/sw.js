@@ -1,7 +1,9 @@
 /* Followset offline shell. Scope is /FollowSet/ (case-sensitive).
    Exercise demo GIFs are not precached. The fetch handler stores each one the first time it is viewed.
-   A missing or stale shell must not turn a navigation into a blank page. */
-const CACHE = "fitty-shell-v7";
+   This worker never reloads a page. It does not listen for controllerchange.
+   skipWaiting lets the new shell take the next launch. clients.claim is intentionally not called:
+   claiming the page that is still booting freezes iOS standalone on the loading screen. */
+const CACHE = "fitty-shell-v8";
 const SCOPE = new URL("./", self.location);
 const SHELL = [
   new URL("./", self.location).href,
@@ -34,6 +36,16 @@ function shellFallback() {
   });
 }
 
+async function fetchTimeout(resource, ms, init) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), ms);
+  try {
+    return await fetch(resource, Object.assign({}, init, { signal: controller.signal }));
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 self.addEventListener("install", (event) => {
   event.waitUntil(
     (async () => {
@@ -41,12 +53,12 @@ self.addEventListener("install", (event) => {
       await Promise.all(
         SHELL.map(async (url) => {
           try {
-            const response = await fetch(url, { cache: "reload" });
+            const response = await fetchTimeout(url, 4000, { cache: "reload" });
             if (response && response.ok && response.type === "basic" && !response.redirected) {
               await cache.put(url, response);
             }
           } catch {
-            /* A failed precache must not block install. */
+            /* A failed or slow precache must not block install. */
           }
         })
       );
@@ -64,7 +76,6 @@ self.addEventListener("activate", (event) => {
           .filter((key) => key !== CACHE && (key.startsWith("fitty-shell") || key.startsWith("fitty-")))
           .map((key) => caches.delete(key))
       );
-      await self.clients.claim();
     })()
   );
 });
@@ -80,11 +91,14 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     (async () => {
       try {
-        const response = await fetch(request);
+        const response = await fetchTimeout(request, 4000);
         if (!response) throw new Error("empty response");
         let usable = response;
         if (response.redirected) {
-          const body = await response.blob();
+          const body = await Promise.race([
+            response.blob(),
+            new Promise((_, reject) => setTimeout(() => reject(new Error("redirect timed out")), 4000)),
+          ]);
           const headers = new Headers(response.headers);
           headers.delete("content-encoding");
           headers.delete("content-length");
