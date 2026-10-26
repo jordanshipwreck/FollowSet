@@ -1,6 +1,7 @@
-/* Followset offline shell. Scope follows this script's directory, so /fitty/ and /FollowSet/ both work.
-   Exercise demo GIFs are not precached. The fetch handler stores each one the first time it is viewed. */
-const CACHE = "fitty-shell-v6";
+/* Followset offline shell. Scope is /FollowSet/ (case-sensitive).
+   Exercise demo GIFs are not precached. The fetch handler stores each one the first time it is viewed.
+   A missing or stale shell must not turn a navigation into a blank page. */
+const CACHE = "fitty-shell-v7";
 const SCOPE = new URL("./", self.location);
 const SHELL = [
   new URL("./", self.location).href,
@@ -12,6 +13,27 @@ const SHELL = [
   new URL("./apple-touch-icon.png", self.location).href,
 ];
 
+function shellFallback() {
+  const html = `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Followset</title>
+  </head>
+  <body style="margin:0;min-height:100vh;background:#f4f1ea;color:#12140a;font-family:ui-sans-serif,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:24px">
+    <main style="max-width:28rem">
+      <h1 style="font-size:28px;margin:0 0 8px">Followset</h1>
+      <p data-testid="shell-fallback" style="font-size:17px;line-height:1.45;margin:0">Followset couldn't load. Check the connection, then open the app again.</p>
+    </main>
+  </body>
+</html>`;
+  return new Response(html, {
+    status: 200,
+    headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" },
+  });
+}
+
 self.addEventListener("install", (event) => {
   event.waitUntil(
     (async () => {
@@ -20,7 +42,9 @@ self.addEventListener("install", (event) => {
         SHELL.map(async (url) => {
           try {
             const response = await fetch(url, { cache: "reload" });
-            if (response && response.ok) await cache.put(url, response);
+            if (response && response.ok && response.type === "basic" && !response.redirected) {
+              await cache.put(url, response);
+            }
           } catch {
             /* A failed precache must not block install. */
           }
@@ -35,7 +59,11 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(
     (async () => {
       const keys = await caches.keys();
-      await Promise.all(keys.filter((key) => key !== CACHE).map((key) => caches.delete(key)));
+      await Promise.all(
+        keys
+          .filter((key) => key !== CACHE && (key.startsWith("fitty-shell") || key.startsWith("fitty-")))
+          .map((key) => caches.delete(key))
+      );
       await self.clients.claim();
     })()
   );
@@ -53,20 +81,37 @@ self.addEventListener("fetch", (event) => {
     (async () => {
       try {
         const response = await fetch(request);
-        if (response && response.ok) {
-          const cache = await caches.open(CACHE);
-          await cache.put(request, response.clone());
+        if (!response) throw new Error("empty response");
+        let usable = response;
+        if (response.redirected) {
+          const body = await response.blob();
+          const headers = new Headers(response.headers);
+          headers.delete("content-encoding");
+          headers.delete("content-length");
+          usable = new Response(body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers,
+          });
         }
-        return response;
+        if (usable.ok && usable.type === "basic") {
+          const copy = usable.clone();
+          caches.open(CACHE).then((cache) => cache.put(request, copy)).catch(() => {});
+        }
+        return usable;
       } catch {
-        const cached = await caches.match(request);
-        if (cached) return cached;
-        if (request.mode === "navigate") {
-          return (
-            (await caches.match(new URL("./index.html", SCOPE).href)) ||
-            (await caches.match(SCOPE.href)) ||
-            Response.error()
-          );
+        try {
+          const cached = await caches.match(request);
+          if (cached) return cached;
+          if (request.mode === "navigate") {
+            const shell =
+              (await caches.match(new URL("./index.html", SCOPE).href)) ||
+              (await caches.match(SCOPE.href));
+            if (shell) return shell;
+            return shellFallback();
+          }
+        } catch {
+          if (request.mode === "navigate") return shellFallback();
         }
         return Response.error();
       }

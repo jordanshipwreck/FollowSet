@@ -1,29 +1,29 @@
 {
-  "id": "./",
+  "id": "/FollowSet/",
   "name": "Followset",
   "short_name": "Followset",
   "description": "Followset workout week, Oct 26 to Nov 1 2026. Log sets, run superset rest timers, and keep the demo on screen.",
-  "start_url": "./",
-  "scope": "./",
+  "start_url": "/FollowSet/",
+  "scope": "/FollowSet/",
   "display": "standalone",
-  "background_color": "#08090b",
+  "background_color": "#f4f1ea",
   "theme_color": "#08090b",
   "lang": "en",
   "icons": [
     {
-      "src": "./icon-192.png",
+      "src": "/FollowSet/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./icon-512.png",
+      "src": "/FollowSet/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./icon-512.png",
+      "src": "/FollowSet/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
