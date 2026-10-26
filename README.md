@@ -26,6 +26,8 @@ Pushes to `main` run [`.github/workflows/pages.yml`](.github/workflows/pages.yml
 
 The published address is https://jordanshipwreck.github.io/fitty/
 
+The header gear opens Settings. On a phone that has no 2026-10-26 Push history yet, the app merges that workout once under seed id `fitty-seed:2026-10-26:push-1` and marks the day done. An existing log for that day is left alone.
+
 ## Google Drive sync
 
 `site/index.html` sets `window.FITTY_GOOGLE_CLIENT_ID`. The app passes that id to Google Identity Services (`accounts.google.com/gsi/client`, `initTokenClient`) with scope `https://www.googleapis.com/auth/drive.file`. Sync writes `Fitty-Cent/fitty-workout.json`.
