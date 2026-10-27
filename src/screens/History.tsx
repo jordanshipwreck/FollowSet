@@ -3,7 +3,7 @@ import { Icon } from "../components/Icon";
 import { Sheet, Thumb } from "../components/ui";
 import { iso, longDay, monthDay, monthGrid, parseIso } from "../lib/dates";
 import { compact, setText, volume } from "../lib/log";
-import { PROGRAM } from "../lib/program";
+import { workoutFor } from "../lib/market";
 import type { Drop, Session, SetLog } from "../lib/store";
 import type { Store } from "../lib/useStore";
 import { Summary } from "./Summary";
@@ -138,7 +138,7 @@ export function History({ store, openDay, toast }: { store: Store; openDay: (d: 
       )}
 
       {reviewSession && (
-        <Sheet title={PROGRAM[reviewSession.day].title} onClose={() => setReview(null)}>
+        <Sheet title={workoutFor(reviewSession.programId, reviewSession.day).title} onClose={() => setReview(null)}>
           <Summary store={store} session={reviewSession} toast={toast} />
         </Sheet>
       )}
@@ -162,7 +162,7 @@ function SessionCard({ s, onEdit, onReview }: { s: Session; onEdit: (l: SetLog) 
           <strong>{d.getDate()}</strong>
         </div>
         <div className="hist-txt">
-          <strong>{PROGRAM[s.day].title}</strong>
+          <strong>{workoutFor(s.programId, s.day).title}</strong>
           <span className="muted small">
             {s.logs.length} {s.logs.length === 1 ? "set" : "sets"} · {compact(volume(s.logs))} lb{s.ratings.length ? ` · rated ${s.ratings.length}` : ""}
           </span>

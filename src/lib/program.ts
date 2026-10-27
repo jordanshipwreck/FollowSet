@@ -38,6 +38,11 @@ export interface Item {
   noWeight?: boolean;
   unilateral?: boolean;
   drop?: boolean;
+  /** Creator media (Studio): a demo video of the creator, and a voice note that plays when the set starts. */
+  videoRef?: string;
+  voiceRef?: string;
+  /** Creator's spoken note for this move; read aloud mid-set when there is no recording. */
+  talk?: string;
 }
 
 export interface Group {

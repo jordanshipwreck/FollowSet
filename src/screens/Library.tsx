@@ -1,26 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Icon } from "../components/Icon";
 import { Pills, Sheet } from "../components/ui";
 import { liftKey, setText } from "../lib/log";
 import type { Store } from "../lib/useStore";
-
-interface Entry {
-  slug: string;
-  name: string;
-  primaryMuscles: string[];
-  secondaryMuscles: string[];
-  equipment: string;
-  phase: string;
-  defaultReps: string;
-  defaultSets: number;
-  restSeconds: number;
-  cues: string[];
-  days: string[];
-  unilateral: boolean;
-  demoGif: string | null;
-  still: string;
-  placeholder?: boolean;
-}
+import { useVault, type VaultEntry as Entry } from "../lib/vault";
 
 const PHASES = [
   ["all", "All"],
@@ -30,23 +13,11 @@ const PHASES = [
 ] as const;
 
 export function Library({ store }: { store: Store }) {
-  const [items, setItems] = useState<Entry[] | null>(null);
-  const [failed, setFailed] = useState(false);
+  const { items, failed } = useVault();
   const [q, setQ] = useState("");
   const [phase, setPhase] = useState<(typeof PHASES)[number][0]>("all");
   const [muscle, setMuscle] = useState("all");
   const [open, setOpen] = useState<Entry | null>(null);
-
-  useEffect(() => {
-    let dead = false;
-    fetch("./exercises.json")
-      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-      .then((d) => !dead && setItems(Array.isArray(d) ? d : []))
-      .catch(() => !dead && setFailed(true));
-    return () => {
-      dead = true;
-    };
-  }, []);
 
   const muscles = useMemo(() => [...new Set((items ?? []).flatMap((i) => i.primaryMuscles))].sort(), [items]);
   const shown = (items ?? []).filter(
@@ -70,7 +41,7 @@ export function Library({ store }: { store: Store }) {
   return (
     <div className="screen" data-testid="exercise-library">
       <header className="page-head">
-        <h1>Library</h1>
+        <h1>Exercise vault</h1>
         <p className="muted" data-testid="library-count">
           {items ? `${shown.length} of ${items.length} exercises` : failed ? "Couldn't load the library offline yet." : "Loading…"}
         </p>

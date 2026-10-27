@@ -1,0 +1,15 @@
+# Supabase CLI config for the Followset cloud. See docs/CLOUD.md.
+project_id = "followset"
+
+[functions.coach]
+verify_jwt = true
+
+[functions.mcp-key]
+verify_jwt = true
+
+[functions.checkout]
+verify_jwt = true
+
+# Outside assistants call this with a connector key, not a Supabase session.
+[functions.mcp]
+verify_jwt = false

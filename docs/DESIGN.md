@@ -58,7 +58,14 @@ In dark mode the main knob pill (Start workout) is lime instead of inverted whit
 | `Pills` | Library filter | "Karma / Credits / Money" switcher |
 | Week strip | Today | Payment timeline months with lime check circles |
 | Tick chart | Progress → Weekly volume | Glucose tick chart with dot markers |
-| Status pills | Hero "Ready / Live / Done" | Green glass "Active" pill |
+| Status pills | Hero "Ready / Live / Done", Discover "Following / Draft" | Green glass "Active" pill |
+| Program card + `Cover` | Discover grid | Photo-topped tiles with a dark price chip |
+| Following card | Discover top | Wide glass row with a ↗ black circle |
+| Chat bubbles | Coach, runner coach sheet | Black user bubble right, white coach bubble left, 6 px tail corner |
+| Talk callout | Runner, under the exercise name | Lime-tinted glass strip with the creator's line |
+| `Recorder` | Studio → Film yourself / Voice note | Full-bleed camera preview, red record dot, Doto countdown |
+| Metric tiles | Coach → Health | Small `.metric` tiles, thin numerals with unit superscript |
+| Program chip | Today, above the hero | Small glass pill naming the followed program; opens Discover |
 
 ## Workout screen (dark variant)
 
@@ -67,6 +74,17 @@ The runner uses the reference's dark mauve glass (crypto wallet shots), so it re
 - The background is `#141116`, plus the current exercise's still frame blurred at 48 px as a glow.
 - Cards are white at 8% with an inner top highlight.
 - The rest overlay is frosted dark. At zero it flips to full lime with dark text ("Time's up. Go.").
+
+## Tablet and desktop
+
+The phone layout is the source; wider screens rearrange it, they don't redesign it.
+
+| Width | Changes |
+|---|---|
+| ≥ 720 px (tablet) | Bento goes 4 columns, Today's plan 2 columns, program grid 3, vault 4. The coach chat and side panels sit side by side. Sheets become centered 600 px modals. |
+| ≥ 1024 px (desktop) | The pill nav becomes a vertical side rail on the left with a vertical sliding pill. Content max 1240 px. The live-run bar floats bottom right. The workout screen splits: sticky demo on the left, exercise, steppers, and dock on the right. Program grid 4, vault 5. |
+
+Check new screens at 390, 820, and 1440 px.
 
 ## Motion
 
@@ -93,4 +111,5 @@ Everything you touch answers the finger. Easing tokens: `--spring` (overshoot, f
 - One lime element per card at most.
 - Numbers use `<Num>` so the weight and unit treatment stays consistent.
 - Every tappable thing is at least 44 px.
-- Check at 390 px wide in Light, Dark, and the workout screen.
+- Check at 390 px wide in Light, Dark, and the workout screen, then at 820 and 1440 px.
+- Grid and flex children that hold a scrolling chip row need `min-width: 0`, or the row widens the whole page.
