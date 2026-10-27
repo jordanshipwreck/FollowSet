@@ -9,7 +9,7 @@ export function TickRing({
   ticks = 60,
   length = 7,
   width = 2,
-  on = "var(--lime)",
+  on = "var(--accent)",
   off = "var(--tick-off)",
   children,
 }: {
@@ -92,7 +92,7 @@ export function StatCard({
   unit?: string;
   foot?: ReactNode;
   onOpen?: () => void;
-  tone?: "lime" | "rose" | "dark";
+  tone?: "accent" | "rose" | "dark";
 }) {
   return (
     <div className={`stat ${tone ?? ""}`}>
@@ -120,7 +120,7 @@ export function KnobButton({
   disabled,
   icon = "arrow",
   testid,
-  tone = "lime",
+  tone = "accent",
   ariaLabel,
 }: {
   label: ReactNode;
@@ -128,7 +128,7 @@ export function KnobButton({
   disabled?: boolean;
   icon?: string;
   testid?: string;
-  tone?: "lime" | "dark" | "glass";
+  tone?: "accent" | "dark" | "glass";
   ariaLabel?: string;
 }) {
   return (

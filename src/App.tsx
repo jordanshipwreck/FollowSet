@@ -7,6 +7,7 @@ import { openDrive, wasSignedIn } from "./lib/drive";
 import { PROGRAM } from "./lib/program";
 import { buildQueue } from "./lib/queue";
 import { mergeStates, newSession, parseState, sessionId, type Session } from "./lib/store";
+import { applyTheme, watchSystemTheme } from "./lib/theme";
 import { useStore } from "./lib/useStore";
 import { History } from "./screens/History";
 import { Library } from "./screens/Library";
@@ -75,6 +76,9 @@ export function App() {
     const t = setTimeout(() => void sync(false), 1500);
     return () => clearTimeout(t);
   }, [sync]);
+
+  useEffect(() => applyTheme(state.settings.theme), [state.settings.theme]);
+  useEffect(() => watchSystemTheme(() => ref.current.settings.theme), [ref]);
 
   // Follow the calendar: if the app stays open past midnight, Today moves with it.
   useEffect(() => {

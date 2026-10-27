@@ -8,7 +8,7 @@
      froze iOS standalone on the loading screen in earlier builds. */
 const BUILD = "__BUILD_ID__";
 const CACHE = `followset-${BUILD}`;
-const MEDIA = "followset-media-v1";
+const MEDIA = "followset-media-v2";
 const BASE = new URL("./", self.location).href;
 const CORE = ["./", "./index.html", "./exercises.json", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png", "./wake.mp4"].map(
   (p) => new URL(p, BASE).href,
@@ -83,7 +83,7 @@ async function networkFirst(request) {
     const hit = (await cache.match(request)) || (await cache.match(new URL("./index.html", BASE).href)) || (await cache.match(BASE));
     if (hit) return hit;
     return new Response(
-      '<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><body style="margin:0;min-height:100vh;display:grid;place-items:center;background:#ecebe7;color:#0e0e0c;font:17px system-ui;padding:24px;text-align:center">Followset couldn\'t load. Check the connection, then open it again.</body>',
+      '<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><body style="margin:0;min-height:100vh;display:grid;place-items:center;background:#f1ecee;color:#0e0e0c;font:17px system-ui;padding:24px;text-align:center">Followset couldn\'t load. Check the connection, then open it again.</body>',
       { headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" } },
     );
   }

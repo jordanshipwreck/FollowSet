@@ -70,7 +70,10 @@ export interface Settings {
   voice: boolean;
   focus: string[];
   weightStep: number;
+  theme: Theme;
 }
+
+export type Theme = "system" | "light" | "dark";
 
 export interface AppState {
   version: 2;
@@ -102,7 +105,7 @@ export function emptyState(): AppState {
 }
 
 export function defaultSettings(): Settings {
-  return { voice: false, focus: [], weightStep: 5 };
+  return { voice: false, focus: [], weightStep: 5, theme: "system" };
 }
 
 const isDay = (v: unknown): v is Day => typeof v === "string" && (DAYS as readonly string[]).includes(v);
@@ -157,6 +160,7 @@ export function cleanSettings(v: unknown): Settings {
     voice: !!s.voice,
     focus: Array.isArray(s.focus) ? s.focus.filter((f): f is string => typeof f === "string") : [],
     weightStep: step > 0 && step <= 50 ? step : 5,
+    theme: s.theme === "light" || s.theme === "dark" ? s.theme : "system",
   };
 }
 

@@ -92,7 +92,7 @@ export function Summary({ store, session, toast }: { store: Store; session: Sess
             <div className={r ? "rate-card rated" : "rate-card"} key={m}>
               <div className="rate-head">
                 <strong>{m}</strong>
-                <TickRing value={g / 100} size={52} ticks={36} length={6} on={r ? "var(--lime-deep)" : "var(--muted)"}>
+                <TickRing value={g / 100} size={52} ticks={36} length={6} on={r ? "var(--accent-deep)" : "var(--muted)"}>
                   <span className="grade-num">{g}</span>
                 </TickRing>
               </div>

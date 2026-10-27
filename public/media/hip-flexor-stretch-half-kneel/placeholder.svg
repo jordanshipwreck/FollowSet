@@ -1,9 +1,9 @@
 <svg width="480" height="480" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img">
   <rect width="480" height="480" fill="#08090b"/>
-  <rect x="28" y="28" width="424" height="424" rx="28" fill="#14161b" stroke="#d6ff3c" stroke-opacity="0.35"/>
-  <text x="52" y="78" fill="#d6ff3c" font-family="ui-sans-serif,system-ui,sans-serif" font-size="22" font-weight="700" letter-spacing="2">STRETCH</text>
+  <rect x="28" y="28" width="424" height="424" rx="28" fill="#14161b" stroke="#ff3d9a" stroke-opacity="0.35"/>
+  <text x="52" y="78" fill="#ff3d9a" font-family="ui-sans-serif,system-ui,sans-serif" font-size="22" font-weight="700" letter-spacing="2">STRETCH</text>
   
-  <g fill="none" stroke="#d6ff3c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+  <g fill="none" stroke="#ff3d9a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
     <path d="M120 320 h240" stroke-opacity="0.45"/>
     <circle cx="230" cy="150" r="18" fill="#14161b"/>
     <path d="M230 168 v70"/>

@@ -223,7 +223,7 @@ export function Today({
           label="Volume"
           value={compact(weekVol)}
           unit="lb"
-          tone="lime"
+          tone="accent"
           foot={<span className="small">{plural(weekSets, "set")} this week</span>}
         />
         <div className="stat wide">

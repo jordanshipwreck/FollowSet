@@ -163,6 +163,23 @@ export function Me({
       </section>
 
       <section className="card">
+        <span className="eyebrow">Appearance</span>
+        <div className="set-row">
+          <div>
+            <strong>Theme</strong>
+            <p className="muted small">System follows your phone's light or dark setting.</p>
+          </div>
+          <div className="seg" data-testid="theme">
+            {(["system", "light", "dark"] as const).map((t) => (
+              <button type="button" key={t} className={state.settings.theme === t ? "on" : ""} onClick={() => setSettings({ theme: t })}>
+                {t === "system" ? "Auto" : t === "light" ? "Light" : "Dark"}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="card">
         <span className="eyebrow">Backup</span>
         <p className="muted small">
           Logs live on this phone. Google Drive keeps a copy in {DRIVE.folder}/{DRIVE.file} and merges sessions from your other devices.
@@ -174,7 +191,7 @@ export function Me({
         <div className="row">
           <button
             type="button"
-            className="btn lime"
+            className="btn accent"
             disabled={busy}
             onClick={async () => {
               setBusy(true);
@@ -325,7 +342,7 @@ export function Me({
             <button type="button" className="btn ghost" onClick={stopCam}>
               Cancel
             </button>
-            <button type="button" className="btn lime big" onClick={() => void shutter()}>
+            <button type="button" className="btn accent big" onClick={() => void shutter()}>
               <Icon name="camera" /> Shutter
             </button>
           </div>

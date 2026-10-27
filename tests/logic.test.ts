@@ -82,7 +82,7 @@ describe("store", () => {
     })!;
     expect(s.sessions).toHaveLength(1);
     expect(s.sessions[0].logs).toHaveLength(1);
-    expect(s.settings).toEqual({ voice: true, focus: ["abs"], weightStep: 5 });
+    expect(s.settings).toEqual({ voice: true, focus: ["abs"], weightStep: 5, theme: "system" });
     expect(parseState({ version: 1 })).toBeNull();
   });
 

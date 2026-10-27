@@ -127,7 +127,7 @@ export function History({ store, openDay, toast }: { store: Store; openDay: (d: 
             ))}
           </div>
           <div className="stack">
-            <button type="button" className="btn lime wide" onClick={saveEdit}>
+            <button type="button" className="btn accent wide" onClick={saveEdit}>
               Save
             </button>
             <button type="button" className="btn danger wide" onClick={deleteSet}>

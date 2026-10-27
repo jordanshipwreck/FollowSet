@@ -78,7 +78,7 @@ export function Progress({ store }: { store: Store }) {
                 <p className="muted small">{f.reason}</p>
               </div>
               {!focus.includes(f.muscle) && (MUSCLES as readonly string[]).includes(f.muscle) && (
-                <button type="button" className="chip lime" onClick={() => toggleFocus(f.muscle)}>
+                <button type="button" className="chip accent" onClick={() => toggleFocus(f.muscle)}>
                   Focus
                 </button>
               )}
@@ -121,7 +121,7 @@ export function Progress({ store }: { store: Store }) {
         <p className="muted small">Each focus muscle gets one extra set on its work exercises. Applies the next time a workout starts.</p>
         <div className="chips">
           {MUSCLES.map((m) => (
-            <button type="button" key={m} className={focus.includes(m) ? "chip lime" : "chip"} onClick={() => toggleFocus(m)} aria-pressed={focus.includes(m)}>
+            <button type="button" key={m} className={focus.includes(m) ? "chip accent" : "chip"} onClick={() => toggleFocus(m)} aria-pressed={focus.includes(m)}>
               {m}
             </button>
           ))}

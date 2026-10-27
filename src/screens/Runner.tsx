@@ -386,7 +386,7 @@ export function Runner({
             {slotLabel(step.group, step.slot)} · Set {step.set} of {step.item.sets}
           </span>
           {step.side && (
-            <span className="chip lime" data-testid="side-chip">
+            <span className="chip accent" data-testid="side-chip">
               {step.side === "L" ? "LEFT" : "RIGHT"}
             </span>
           )}
@@ -422,7 +422,7 @@ export function Runner({
               {hint && <p className={hint.up ? "hint-up" : "muted"}>{hint.text}</p>}
             </div>
             {hint?.up && weight !== hint.weight && (
-              <button type="button" className="chip lime" onClick={() => setWeight(hint.weight)}>
+              <button type="button" className="chip accent" onClick={() => setWeight(hint.weight)}>
                 Use {hint.weight}
               </button>
             )}
@@ -545,7 +545,7 @@ export function Runner({
         </button>
         <KnobButton
           testid="log-set"
-          tone="lime"
+          tone="accent"
           icon={listening ? "mic" : "check"}
           label={listening ? "Listening…" : "Log set"}
           onClick={() => void logSet()}
@@ -560,7 +560,7 @@ export function Runner({
         <div className="overlay paused-ov" data-testid="paused">
           <p className="eyebrow">Paused</p>
           <strong className="display">{clock(elapsed(cur(), now) / 1000)}</strong>
-          <button type="button" className="btn lime big" onClick={resume}>
+          <button type="button" className="btn accent big" onClick={resume}>
             <Icon name="play" /> Resume
           </button>
           <button type="button" className="btn ghost" onClick={() => setMenu("menu")}>
@@ -580,7 +580,7 @@ export function Runner({
             ticks={72}
             length={16}
             width={3}
-            on={remaining <= 0 ? "var(--ink)" : "var(--lime)"}
+            on={remaining <= 0 ? "var(--ink)" : "var(--accent)"}
             off={remaining <= 0 ? "rgba(14,14,12,.15)" : "rgba(255,255,255,.12)"}
           >
             <strong className="dotnum big" data-testid="timer-digits">
@@ -601,7 +601,7 @@ export function Runner({
             <button type="button" className="btn ghost" onClick={() => addRest(15)}>
               +15s
             </button>
-            <button type="button" className="btn lime" data-testid="skip-rest" onClick={() => putSession({ ...cur(), timer: null })}>
+            <button type="button" className="btn accent" data-testid="skip-rest" onClick={() => putSession({ ...cur(), timer: null })}>
               {remaining <= 0 ? "Start set" : "Skip rest"}
             </button>
           </div>
@@ -615,7 +615,7 @@ export function Runner({
             <button type="button" className="btn ghost wide" onClick={() => setMenu("plan")}>
               <Icon name="list" /> Jump to a step
             </button>
-            <button type="button" className="btn lime wide" data-testid="confirm-end" onClick={() => finish(cur())}>
+            <button type="button" className="btn accent wide" data-testid="confirm-end" onClick={() => finish(cur())}>
               <Icon name="check" /> End workout
             </button>
             <button type="button" className="btn danger wide" data-testid="discard-workout" onClick={() => setMenu("discard")}>
