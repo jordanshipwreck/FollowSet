@@ -68,6 +68,25 @@ The runner uses the reference's dark mauve glass (crypto wallet shots), so it re
 - Cards are white at 8% with an inner top highlight.
 - The rest overlay is frosted dark. At zero it flips to full lime with dark text ("Time's up. Go.").
 
+## Motion
+
+Everything you touch answers the finger. Easing tokens: `--spring` (overshoot, for releases and arrivals) and `--press` (fast ease-out, for presses and exits). The rules live in the Motion block at the end of `src/styles.css`.
+
+| Interaction | Behavior |
+|---|---|
+| Press any button | Sinks to 94% in 0.12 s, springs back on release. Big cards and the knob pill sink to 97%. Day and calendar cells to 90%. |
+| Knob pill (Start / Log set) | The knob slides right 10 px while held; the trailing chevrons nudge on a loop. |
+| Tab bar, week strip | The black (or white, in Dark) selection pill slides to the new item with a spring; the active tab icon hops. |
+| Changing tabs | Screen sections rise in, staggered 40 ms apart. |
+| Workout step change | The demo card pops up from 95%, the text slides in from the right. Replays when a rest ends, so the next exercise visibly arrives. |
+| Rest timer | The ring pops in from 82%; at zero the background fades to lime. |
+| Weight / reps − + | The number rolls up on +, down on −. |
+| Dials (Gains Grade) | Ticks sweep in clockwise on first show. |
+| Sheets | Spring up. Drag the header down to dismiss (over 120 px, or a fast flick); a short drag springs back. |
+| Android | A 6 ms vibration on button press. iOS has no vibrate API. |
+
+`prefers-reduced-motion` turns all of it off.
+
 ## Rules for new screens
 
 - Start from `.glass` (card) or `.stat` (number tile). Don't invent new surfaces.

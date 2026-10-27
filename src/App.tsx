@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { Icon } from "./components/Icon";
 import { Aura } from "./components/ui";
 import { dayOf, iso } from "./lib/dates";
@@ -198,7 +198,8 @@ export function App() {
               <Icon name="arrow" />
             </button>
           )}
-          <nav className="nav" aria-label="Sections">
+          <nav className="nav" aria-label="Sections" style={{ "--i": TABS.findIndex(([k]) => k === tab) } as CSSProperties}>
+            <i className="nav-pill" aria-hidden="true" />
             {TABS.map(([k, label, icon]) => (
               <button key={k} type="button" data-testid={`tab-${k}`} className={tab === k ? "on" : ""} aria-current={tab === k ? "page" : undefined} onClick={() => {
                 setTab(k);

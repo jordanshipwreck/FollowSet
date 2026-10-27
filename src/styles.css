@@ -2180,6 +2180,255 @@ input[type="range"]::-moz-range-thumb {
   transform: translate(-50%, 0);
 }
 
+
+/* ---------- Motion ----------
+   Everything you touch answers the finger: a quick sink on press, a springy return on release.
+   Selection pills slide between options instead of jumping. Screens and steps ease in.
+   prefers-reduced-motion (bottom of file) switches all of it off. */
+:root {
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --press: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+body {
+  transition: background-color 0.4s var(--press), color 0.4s var(--press);
+}
+
+/* Press physics */
+button,
+label.btn,
+.lib-card {
+  transition: transform 0.5s var(--spring), background-color 0.25s, color 0.25s, box-shadow 0.25s, opacity 0.2s;
+}
+button:active:not(:disabled),
+label.btn:active {
+  transform: scale(0.94);
+  transition-duration: 0.12s;
+  transition-timing-function: var(--press);
+}
+.knob:active:not(:disabled),
+button.glass:active:not(:disabled),
+.hist-head:active,
+.lib-card:active,
+.jump button:active {
+  transform: scale(0.97);
+}
+.week button:active:not(:disabled),
+.cal button:active:not(:disabled) {
+  transform: scale(0.9);
+}
+.live-bar:active:not(:disabled) {
+  transform: translateX(-50%) scale(0.97);
+}
+.knob-dot {
+  transition: transform 0.55s var(--spring);
+}
+.knob:active:not(:disabled) .knob-dot {
+  transform: translateX(10px) scale(0.94);
+  transition-duration: 0.15s;
+}
+.knob-trail svg {
+  animation: nudge 1.8s ease-in-out infinite;
+}
+.knob-trail svg + svg {
+  animation-delay: 0.15s;
+}
+@keyframes nudge {
+  0%,
+  60%,
+  100% {
+    transform: none;
+  }
+  30% {
+    transform: translateX(4px);
+  }
+}
+
+/* Sliding selection pills */
+.nav-pill {
+  position: absolute;
+  top: 7px;
+  bottom: 7px;
+  left: 7px;
+  width: calc((100% - 14px - 8px) / 5);
+  border-radius: 999px;
+  background: var(--ink);
+  transform: translateX(calc(var(--i, 0) * (100% + 2px)));
+  transition: transform 0.6s var(--spring), background-color 0.3s;
+}
+.nav button {
+  position: relative;
+  z-index: 1;
+}
+.nav button.on {
+  background: transparent;
+}
+.nav button.on svg {
+  animation: icon-pop 0.5s var(--spring);
+}
+@keyframes icon-pop {
+  40% {
+    transform: translateY(-3px) scale(1.15);
+  }
+}
+.week {
+  position: relative;
+}
+.week-pill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: calc((100% - 30px) / 7);
+  border-radius: 18px;
+  background: var(--ink);
+  transform: translateX(calc(var(--i, 0) * (100% + 5px)));
+  transition: transform 0.55s var(--spring), background-color 0.3s;
+}
+.week button {
+  position: relative;
+  z-index: 1;
+}
+.week button.on {
+  background: transparent;
+}
+
+/* Screens ease in, children staggered */
+.screen {
+  animation: none;
+}
+.screen > :not(.scrim) {
+  animation: rise 0.55s var(--press) both;
+}
+.screen > :nth-child(2) {
+  animation-delay: 40ms;
+}
+.screen > :nth-child(3) {
+  animation-delay: 80ms;
+}
+.screen > :nth-child(4) {
+  animation-delay: 120ms;
+}
+.screen > :nth-child(5) {
+  animation-delay: 160ms;
+}
+.screen > :nth-child(6) {
+  animation-delay: 200ms;
+}
+.screen > :nth-child(n + 7) {
+  animation-delay: 240ms;
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+/* Workout: each step slides in */
+.media-card {
+  animation: card-in 0.55s var(--spring) both;
+}
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.95);
+  }
+}
+.run-body {
+  animation: body-in 0.45s var(--press) 60ms both;
+}
+@keyframes body-in {
+  from {
+    opacity: 0;
+    transform: translateX(22px);
+  }
+}
+.rest-ov .ring,
+.paused-ov .display {
+  animation: pop 0.6s var(--spring) both;
+}
+.rest-ov .up-next {
+  animation: rise 0.5s var(--press) 120ms both;
+}
+.rest-ov {
+  transition: background-color 0.35s var(--press);
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+}
+
+/* Stepper numbers roll in the direction of the tap */
+.stepper-val[data-bump="up0"] input {
+  animation: bump-up-a 0.38s var(--spring);
+}
+.stepper-val[data-bump="up1"] input {
+  animation: bump-up-b 0.38s var(--spring);
+}
+.stepper-val[data-bump="down0"] input {
+  animation: bump-down-a 0.38s var(--spring);
+}
+.stepper-val[data-bump="down1"] input {
+  animation: bump-down-b 0.38s var(--spring);
+}
+@keyframes bump-up-a {
+  from {
+    transform: translateY(12px);
+    opacity: 0.3;
+  }
+}
+@keyframes bump-up-b {
+  from {
+    transform: translateY(12px);
+    opacity: 0.3;
+  }
+}
+@keyframes bump-down-a {
+  from {
+    transform: translateY(-12px);
+    opacity: 0.3;
+  }
+}
+@keyframes bump-down-b {
+  from {
+    transform: translateY(-12px);
+    opacity: 0.3;
+  }
+}
+
+/* Dials sweep in tick by tick */
+.tk {
+  animation: tk-in 0.5s var(--press) both;
+}
+@keyframes tk-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Sheets: spring up, follow the finger down, snap back */
+.sheet {
+  animation: up 0.5s var(--spring);
+  transition: transform 0.35s var(--press);
+}
+.sheet-drag {
+  touch-action: none;
+  cursor: grab;
+}
+.chip,
+.pilltabs button,
+.seg button,
+.switch,
+.switch i {
+  transition: background-color 0.3s var(--press), color 0.3s, border-color 0.3s, transform 0.5s var(--spring);
+}
+.meter i,
+.vbar i {
+  transition: width 0.8s var(--press), height 0.8s var(--press);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

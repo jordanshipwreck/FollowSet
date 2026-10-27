@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent, type ReactNode } from "react";
 import { mediaFor } from "../lib/media";
 import { Icon } from "./Icon";
 
@@ -12,9 +12,11 @@ export function TickRing({
   on = "var(--accent)",
   off = "var(--tick-off)",
   children,
+  sweep = false,
 }: {
   value: number;
   size?: number;
+  sweep?: boolean;
   ticks?: number;
   length?: number;
   width?: number;
@@ -44,6 +46,8 @@ export function TickRing({
               stroke={i < lit ? on : off}
               strokeWidth={width}
               strokeLinecap="round"
+              className={sweep ? "tk" : undefined}
+              style={sweep ? ({ animationDelay: `${Math.round((i / ticks) * 520)}ms` } as CSSProperties) : undefined}
             />
           );
         })}
@@ -182,15 +186,46 @@ export function Thumb({ name, size = 48 }: { name: string; size?: number }) {
 }
 
 export function Sheet({ title, onClose, children }: { title: string; onClose: () => void; children: ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const drag = useRef<{ y: number; dy: number; t: number } | null>(null);
+
+  // Drag the header down to dismiss; it springs back if released early.
+  const down = (e: ReactPointerEvent) => {
+    if ((e.target as Element).closest("button")) return;
+    drag.current = { y: e.clientY, dy: 0, t: performance.now() };
+    (e.currentTarget as Element).setPointerCapture?.(e.pointerId);
+    if (ref.current) ref.current.style.transition = "none";
+  };
+  const move = (e: ReactPointerEvent) => {
+    const d = drag.current;
+    if (!d || !ref.current) return;
+    d.dy = Math.max(0, e.clientY - d.y);
+    ref.current.style.transform = `translateY(${d.dy}px)`;
+  };
+  const up = () => {
+    const d = drag.current;
+    drag.current = null;
+    const el = ref.current;
+    if (!d || !el) return;
+    const fast = d.dy / Math.max(1, performance.now() - d.t) > 0.6;
+    el.style.transition = "";
+    if (d.dy > 120 || (fast && d.dy > 30)) {
+      el.style.transform = "translateY(100%)";
+      setTimeout(onClose, 220);
+    } else el.style.transform = "";
+  };
+
   return (
     <div className="scrim" onClick={onClose} role="presentation">
-      <div className="sheet" role="dialog" aria-modal="true" aria-label={title} onClick={(e) => e.stopPropagation()}>
-        <i className="grab" aria-hidden="true" />
-        <div className="sheet-head">
-          <h2>{title}</h2>
-          <button type="button" className="icon-btn" aria-label="Close" onClick={onClose}>
-            <Icon name="close" />
-          </button>
+      <div ref={ref} className="sheet" role="dialog" aria-modal="true" aria-label={title} onClick={(e) => e.stopPropagation()}>
+        <div className="sheet-drag" onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up}>
+          <i className="grab" aria-hidden="true" />
+          <div className="sheet-head">
+            <h2>{title}</h2>
+            <button type="button" className="icon-btn" aria-label="Close" onClick={onClose}>
+              <Icon name="close" />
+            </button>
+          </div>
         </div>
         <div className="sheet-body">{children}</div>
       </div>
@@ -219,15 +254,19 @@ export function Stepper({
   testid?: string;
   placeholder?: string;
 }) {
+  // Signed press counter: the sign is the direction, the parity flips the CSS animation name
+  // so the bump replays on every press.
+  const [pulse, setPulse] = useState(0);
   const bump = (d: number) => {
     const n = parseFloat(value);
     const base = Number.isFinite(n) ? n : 0;
     onChange(String(Math.max(0, +(base + d).toFixed(2))));
+    setPulse((p) => (Math.abs(p) + 1) * (d > 0 ? 1 : -1));
   };
   return (
     <div className={disabled ? "stepper off" : "stepper"}>
       <span className="label">{label}</span>
-      <label className="stepper-val">
+      <label className="stepper-val" data-bump={pulse === 0 ? undefined : `${pulse > 0 ? "up" : "down"}${Math.abs(pulse) % 2}`}>
         <input
           data-testid={testid}
           aria-label={label}

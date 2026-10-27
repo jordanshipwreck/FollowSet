@@ -102,7 +102,7 @@ export function Runner({
       /* none */
     }
     const today = lastWeight(step.item.name, [cur()]);
-    const w = step.item.noWeight ? "" : draft?.weight || today || hint?.weight || lastWeight(step.item.name, ref.current.sessions);
+    const w = step.item.noWeight ? "" : draft?.weight || today || lastWeight(step.item.name, ref.current.sessions);
     const top = repTop(step.item.reps);
     const r = draft?.reps ?? (step.item.noWeight || step.item.timerSec ? "" : prevSameSet?.reps && /^\d+$/.test(prevSameSet.reps) ? prevSameSet.reps : top ? String(top) : "");
     setWeight(w);
@@ -357,7 +357,7 @@ export function Runner({
         </button>
       </header>
 
-      <div className="media-card">
+      <div className="media-card" key={`m-${stepKey}-${resting ? "r" : "a"}`}>
         {media ? (
           <img
             key={media.src}
@@ -393,7 +393,7 @@ export function Runner({
         </div>
       </div>
 
-      <section className="run-body">
+      <section className="run-body" key={`b-${stepKey}-${resting ? "r" : "a"}`}>
         <p className="eyebrow">{step.group}</p>
         <h1 className="ex-name" data-testid="exercise-name">
           {step.item.name}
@@ -423,7 +423,7 @@ export function Runner({
             </div>
             {hint?.up && weight !== hint.weight && (
               <button type="button" className="chip accent" onClick={() => setWeight(hint.weight)}>
-                Use {hint.weight}
+                <Icon name="up" size={14} stroke={2.4} /> Use {hint.weight}
               </button>
             )}
           </div>
@@ -575,6 +575,7 @@ export function Runner({
             {remaining <= 0 ? "Time's up. Go." : timer.label}
           </p>
           <TickRing
+            sweep
             value={timer.total ? remaining / (timer.total * 1000) : 0}
             size={250}
             ticks={72}

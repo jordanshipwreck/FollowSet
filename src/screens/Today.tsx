@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, type CSSProperties } from "react";
 import { Icon } from "../components/Icon";
 import { DotRow, KnobButton, Num, Sheet, StatCard, Thumb, TickRing } from "../components/ui";
 import { addDays, clock, dayOf, fmt, iso, longDay, monthDay, weekDates, weekRangeLabel } from "../lib/dates";
@@ -100,7 +100,8 @@ export function Today({
             <Icon name="right" size={16} />
           </button>
         </div>
-        <div className="week">
+        <div className="week" style={{ "--i": week.indexOf(date) } as CSSProperties}>
+          <i className="week-pill" aria-hidden="true" />
           {week.map((d) => (
             <button
               key={d}
@@ -241,7 +242,7 @@ export function Today({
               <Num value={avgGrade ?? "—"} unit={avgGrade === null ? undefined : "/100"} />
               <span className="muted small">{grades.length ? `across ${plural(grades.length, "muscle")}` : "Rate muscles after a workout"}</span>
             </div>
-            <TickRing value={(avgGrade ?? 0) / 100} size={84} ticks={48} length={9} />
+            <TickRing sweep value={(avgGrade ?? 0) / 100} size={84} ticks={48} length={9} />
           </div>
         </div>
       </section>

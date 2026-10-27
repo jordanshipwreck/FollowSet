@@ -23,6 +23,17 @@ createRoot(document.getElementById("root")!).render(
   </StrictMode>,
 );
 
+// iOS Safari only applies :active styles when a touch listener exists.
+document.addEventListener("touchstart", () => {}, { passive: true });
+// A short tick on Android when a button is pressed (iOS has no vibrate API).
+document.addEventListener(
+  "pointerdown",
+  (e) => {
+    if ((e.target as Element | null)?.closest?.("button:not(:disabled)")) navigator.vibrate?.(6);
+  },
+  { passive: true },
+);
+
 if ("serviceWorker" in navigator && import.meta.env.PROD) {
   // Registered after load so it never competes with first paint. No reload on controllerchange:
   // a new build takes over on the next launch.

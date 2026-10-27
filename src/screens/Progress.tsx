@@ -33,7 +33,7 @@ export function Progress({ store }: { store: Store }) {
       </header>
 
       <section className="card grade-hero" data-testid="gains-grade-label">
-        <TickRing value={(avg ?? 0) / 100} size={136} ticks={60} length={12} width={2.5}>
+        <TickRing sweep value={(avg ?? 0) / 100} size={136} ticks={60} length={12} width={2.5}>
           <Num value={avg ?? "—"} className="lg" />
         </TickRing>
         <div>
