@@ -80,7 +80,7 @@ Single user, no accounts. Anyone with the phone can see and edit everything on i
 
 **Change the program:** edit `src/lib/program.ts`. Every new exercise needs 2–3 cues in `src/lib/cues.ts` (the app throws on load otherwise) and media (see next). Run `npm test`; the media test fails if a file is missing.
 
-**Add or replace media:** put files in `public/media/<slug>/`. Map the name in `src/lib/media.ts` (`PREFIX`, `STARTS`, `ILLUSTRATED`, `STILL_ONLY`). Update `public/exercises.json` and `catalog/exercises.csv`. If you replace a file at an existing path, bump `MEDIA` in `public/sw.js` (currently `followset-media-v2`; bump to the next number) or phones keep the old one.
+**Add or replace media:** put files in `public/media/<slug>/`. Map the name in `src/lib/media.ts` (`PREFIX`, `STARTS`, `ILLUSTRATED`, `STILL_ONLY`). Update `public/exercises.json` and `catalog/exercises.csv`. If you replace a file at an existing path, bump `MEDIA` in `public/sw.js` (currently `followset-media-v3`; bump to the next number) or phones keep the old one.
 
 **Deploy:** merge to `main`. CI tests, builds, and publishes. Each build stamps a new service-worker cache; phones pick it up on the next launch after the one that downloads it.
 
@@ -131,6 +131,7 @@ Single user, no accounts. Anyone with the phone can see and edit everything on i
 | Date | Change |
 |---|---|
 | 2026-10-27 | **v3 rebuild from source.** Vite + React + TypeScript replaces the 4 MB minified single file (now ~90 KB gzipped plus fonts). New UI: dark canvas, lime/lilac/peach bento cards, pill nav, full-screen runner with steppers and a ring rest timer. Program repeats weekly instead of ending Nov 1. Added: week navigation, last-time and progression hints, weekly volume chart, per-muscle sparklines, JSON import, Drive sign-out, step jump list, minimize-while-running bar, midnight rollover. Fixed: Drive sign-in timed out after 2 s (consent popup could never finish), Drive merge never applied edits from another device, catalog pointed the incline walk at a missing GIF, offline launch needed precached assets, photo zip names collided for repeat shots. Dropped: v1 `fitty-workout-log` import and the one-time Oct 26 "repair" that could overwrite a hand-logged Oct 26. |
+| 2026-10-27 | **Back to lime, themes kept.** Jordan rejected the pink. Accent is neon lime again (#d9f34a) in both Light and Dark; the Auto/Light/Dark setting stays. Dark theme is neutral near-black. Illustrations back to lime; media cache bumped to `followset-media-v3`. |
 | 2026-10-27 | **Hot pink + light/dark themes.** Accent changed from lime to neon hot pink (#ff3d9a, dark text on pink fills). Added Dark theme and an Auto/Light/Dark setting (You → Appearance, stored as `settings.theme`). Warm-up/stretch illustrations recolored pink; media cache bumped to `followset-media-v2`. |
 | 2026-10-27 | **Restyle to the Rondesign reference** (docs/DESIGN.md). Light warm canvas with blurred glows, white frosted cards, thin Outfit numerals, Doto dot-matrix timers, knob-pill Start/Log buttons, tick rings and tick charts, black ↗ buttons, black-pill tabs. The workout screen is dark mauve glass over the blurred demo frame. Fonts: Inter Tight replaced by Outfit + Doto. |
 | 2026-10-26 | v2 single-file build: End/Discard, Oct 26 Push seed, exercise catalog, demo GIFs, Drive sync, Settings gear. |

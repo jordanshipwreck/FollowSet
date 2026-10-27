@@ -6,10 +6,10 @@ Tokens live at the top of `src/styles.css`. Change them there, not in components
 
 ## Principles
 
-1. **Airy, with a dark twin.** Warm off-white canvas in Light (`--bg #f1ecee`), near-black plum in Dark (`#0f0b0e`), with soft blurred color glows behind (`<Aura />`).
+1. **Airy, with a dark twin.** Warm off-white canvas in Light (`--bg #ecebe7`), near-black in Dark (`#0d0d0c`), with soft blurred color glows behind (`<Aura />`).
 2. **White frosted cards.** `--card` is translucent white with backdrop blur, 28–34 px radius, and a soft drop shadow with a top highlight.
 3. **Numbers are the hero.** Big numerals in a light weight (Outfit 300, tight tracking), with a small superscript unit: `24k lb`, `~60 min`, `1/5`.
-4. **One loud accent.** Neon hot pink `--accent #ff3d9a` means done / active / go: check dots, the live state, the knob, the current week. Never decoration. (The Rondesign shots use lime. Jordan chose hot pink on 2026-10-27.)
+4. **One loud accent.** Neon lime `--accent #d9f34a` means done / active / go: check dots, the live state, the knob, the current week. Never decoration. (Hot pink was tried on 2026-10-27 and rejected.)
 5. **Ink for action.** Ink circle ↗ buttons open detail; an ink pill marks the active tab or nav item. Ink is black in Light and near-white in Dark.
 6. **Instrument-style data.** Tick rings (`<TickRing />`), dot rows (`<DotRow />`), tick-line charts with a dot marker, dot-matrix digits (Doto) for timers.
 7. **Small uppercase labels.** `.label`: 11 px, 0.14 em tracking, muted.
@@ -32,20 +32,20 @@ Two themes, chosen under You → Appearance: **Auto** (follows the phone), **Lig
 
 | Token | Light | Dark | Use |
 |---|---|---|---|
-| `--bg` | #f1ecee | #0f0b0e | Canvas |
+| `--bg` | #ecebe7 | #0d0d0c | Canvas |
 | `--card` | white 78% + blur | white 6% + blur | Cards |
-| `--text` | #121012 | #f6eff3 | Body text |
-| `--ink` / `--on-ink` | #121012 / #fff | #f6eff3 / #120e11 | "Black" action fills (they invert in dark) and the text on them |
-| `--accent` | #ff3d9a | #ff3d9a | Neon hot pink: done / active / go |
-| `--accent-ink` | #1a0010 | #1a0010 | Text on pink. 7:1 contrast; white on this pink is only 3:1 |
-| `--accent-deep` | #d1176f | #ff6bb5 | Pink used as text or thin lines on the page background |
-| `--glow-1..3` | pink, lilac, peach | pink, violet, orange | Background aura |
+| `--text` | #0e0e0c | #f4f4f1 | Body text |
+| `--ink` / `--on-ink` | #0e0e0c / #fff | #f4f4f1 / #0e0e0c | "Black" action fills (they invert in dark) and the text on them |
+| `--accent` | #d9f34a | #d9f34a | Neon lime: done / active / go |
+| `--accent-ink` | #141600 | #141600 | Text on lime (never white: white on lime is unreadable) |
+| `--accent-deep` | #b6d21f | #d9f34a | Lime for text or thin lines on the page background |
+| `--glow-1..3` | amber, rose, lime | mauve, indigo, olive | Background aura |
 | `--green` | #5cc27a | #5cc27a | "Done" status pill |
 | `--red` | #e5533f | #e5533f | Destructive, pain notes |
 
 Borders and tracks use `rgba(var(--ink-rgb), a)`, so they flip with the theme. Never hardcode `#000`, `#fff`, or ink rgba in new CSS.
 
-In dark mode the main knob pill (Start workout) is pink instead of inverted white, so it stays the loudest thing on screen. The workout screen is dark in both themes.
+In dark mode the main knob pill (Start workout) is lime instead of inverted white, so it stays the loudest thing on screen. The active nav icon turns dark on its white pill. The workout screen is dark in both themes.
 
 ## Components
 
@@ -64,14 +64,14 @@ In dark mode the main knob pill (Start workout) is pink instead of inverted whit
 
 The runner uses the reference's dark mauve glass (crypto wallet shots), so it reads well under gym lighting and the demo stays the brightest thing on screen.
 
-- The background is `#140f13`, plus the current exercise's still frame blurred at 48 px as a glow.
+- The background is `#141116`, plus the current exercise's still frame blurred at 48 px as a glow.
 - Cards are white at 8% with an inner top highlight.
-- The rest overlay is frosted dark. At zero it flips to full hot pink with dark text ("Time's up. Go.").
+- The rest overlay is frosted dark. At zero it flips to full lime with dark text ("Time's up. Go.").
 
 ## Rules for new screens
 
 - Start from `.glass` (card) or `.stat` (number tile). Don't invent new surfaces.
-- One pink element per card at most.
+- One lime element per card at most.
 - Numbers use `<Num>` so the weight and unit treatment stays consistent.
 - Every tappable thing is at least 44 px.
 - Check at 390 px wide in Light, Dark, and the workout screen.

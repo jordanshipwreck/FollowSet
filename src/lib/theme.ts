@@ -2,7 +2,7 @@
 // before first paint so the page never flashes the wrong theme.
 import type { Theme } from "./store";
 
-const META: Record<"light" | "dark", string> = { light: "#f1ecee", dark: "#0f0b0e" };
+const META: Record<"light" | "dark", string> = { light: "#ecebe7", dark: "#0d0d0c" };
 
 export function resolveTheme(t: Theme): "light" | "dark" {
   if (t !== "system") return t;

@@ -1,6 +1,6 @@
 /* Followset design system, modeled on Rondesign's app work (see docs/DESIGN.md).
    Light warm canvas with blurred color glows, white frosted cards, thin oversized numerals,
-   neon hot pink used only for "done / active / go", black circle arrow buttons, tick and dot charts.
+   neon lime used only for "done / active / go", black circle arrow buttons, tick and dot charts.
    The workout screen flips to dark mauve glass over a blurred demo frame. */
 
 @font-face {
@@ -20,38 +20,36 @@
 
 :root {
   /* Light theme (default). Dark theme overrides below; the runner is always dark. */
-  --bg: #f1ecee;
-  --text: #121012;
-  --ink: #121012;
-  --ink-rgb: 18, 16, 18;
+  --bg: #ecebe7;
+  --text: #0e0e0c;
+  --ink: #0e0e0c;
+  --ink-rgb: 14, 14, 12;
   --on-ink: #ffffff;
-  --ink-2: #3b3539;
-  --muted: #8c8489;
+  --ink-2: #3a3a36;
+  --muted: #8b8a84;
   --line: rgba(var(--ink-rgb), 0.07);
   --card: rgba(255, 255, 255, 0.78);
   --card-solid: #ffffff;
   --card-2: rgba(var(--ink-rgb), 0.045);
-  --sheet: #f8f5f6;
+  --sheet: #f6f5f2;
   --tick-off: rgba(var(--ink-rgb), 0.12);
-  /* Neon hot pink. Dark text on pink fills reads at 7:1; --accent-deep is the pink for text on white. */
-  --accent: #ff3d9a;
-  --accent-rgb: 255, 61, 154;
-  --accent-deep: #d1176f;
-  --accent-ink: #1a0010;
-  --accent-ink-rgb: 26, 0, 16;
-  --accent-soft: #ffd1e6;
+  /* Neon lime. Dark text on lime fills; --accent-deep is the lime for text and thin lines on white. */
+  --accent: #d9f34a;
+  --accent-rgb: 217, 243, 74;
+  --accent-deep: #b6d21f;
+  --accent-ink: #141600;
+  --accent-ink-rgb: 20, 22, 0;
   --green: #5cc27a;
-  --rose: #f3a6c8;
-  --peach: #f7bd96;
-  --violet: #c7b2ff;
+  --rose: #e9a6c0;
+  --peach: #f4b98a;
   --red: #e5533f;
-  --glow-1: #ffc2dc;
-  --glow-2: #e3c6ff;
-  --glow-3: #ffd6bd;
-  --glow-alpha: 0.6;
-  --dark-bg: #140f13;
+  --glow-1: #f7d28a;
+  --glow-2: #e7b3cf;
+  --glow-3: #e2f59a;
+  --glow-alpha: 0.55;
+  --dark-bg: #141116;
   --nav-bg: rgba(255, 255, 255, 0.72);
-  --shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 18px 40px -22px rgba(60, 20, 40, 0.22);
+  --shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 18px 40px -22px rgba(30, 28, 20, 0.22);
   --r-xl: 34px;
   --r-lg: 28px;
   --r-md: 20px;
@@ -66,23 +64,22 @@
 }
 
 :root[data-theme="dark"] {
-  --bg: #0f0b0e;
-  --text: #f6eff3;
-  --ink: #f6eff3;
-  --ink-rgb: 246, 239, 243;
-  --on-ink: #120e11;
-  --ink-2: #d9ced4;
-  --muted: #9a8e95;
+  --bg: #0d0d0c;
+  --text: #f4f4f1;
+  --ink: #f4f4f1;
+  --ink-rgb: 244, 244, 241;
+  --on-ink: #0e0e0c;
+  --ink-2: #d4d4cf;
+  --muted: #8f8f88;
   --card: rgba(255, 255, 255, 0.06);
-  --card-solid: #1c161a;
-  --sheet: #181216;
-  --accent-deep: #ff6bb5;
-  --accent-soft: #4a1a33;
-  --glow-1: #ff3d9a;
-  --glow-2: #6b2bd9;
-  --glow-3: #ff7a4d;
-  --glow-alpha: 0.28;
-  --nav-bg: rgba(34, 26, 31, 0.78);
+  --card-solid: #1a1a18;
+  --sheet: #161614;
+  --accent-deep: #d9f34a;
+  --glow-1: #8f5a7a;
+  --glow-2: #3d3a6e;
+  --glow-3: #6e7d2a;
+  --glow-alpha: 0.3;
+  --nav-bg: rgba(30, 30, 28, 0.78);
   --shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 20px 40px -24px rgba(0, 0, 0, 0.7);
   color-scheme: dark;
 }
@@ -501,7 +498,7 @@ main {
   background: var(--accent);
   color: var(--accent-ink);
 }
-/* Dark theme: the primary pill goes hot pink so it stays the loudest thing on the page. */
+/* Dark theme: the primary pill goes lime so it stays the loudest thing on the page. */
 [data-theme="dark"] .knob.dark {
   background: var(--accent);
   color: var(--accent-ink);
@@ -937,7 +934,7 @@ main {
   width: 280px;
   height: 280px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.38), transparent 65%);
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.55), transparent 65%);
   z-index: -1;
 }
 .hero.done::before {
@@ -1032,7 +1029,7 @@ main {
   gap: 8px;
 }
 .stat.accent {
-  background: linear-gradient(160deg, #ff8cc4, var(--accent));
+  background: linear-gradient(160deg, #eaff8a, var(--accent));
   color: var(--accent-ink);
 }
 .stat.accent .ico {
@@ -1042,7 +1039,7 @@ main {
   color: rgba(var(--accent-ink-rgb), 0.55);
 }
 .stat.rose {
-  background: linear-gradient(160deg, #fbd9e8, var(--rose));
+  background: linear-gradient(160deg, #f6d3e1, var(--rose));
 }
 
 .plan {
@@ -1103,6 +1100,9 @@ main {
 }
 .nav button.on svg {
   color: var(--accent);
+}
+[data-theme="dark"] .nav button.on svg {
+  color: var(--on-ink);
 }
 .live-bar {
   position: fixed;
@@ -1228,13 +1228,13 @@ main {
   opacity: 0.25;
 }
 .runner .aura .a1 {
-  background: radial-gradient(circle, #b02a6e, transparent 70%);
+  background: radial-gradient(circle, #8f5a7a, transparent 70%);
 }
 .runner .aura .a2 {
-  background: radial-gradient(circle, #4f2a8a, transparent 70%);
+  background: radial-gradient(circle, #5b3d6e, transparent 70%);
 }
 .runner .aura .a3 {
-  background: radial-gradient(circle, #8a3a2a, transparent 70%);
+  background: radial-gradient(circle, #6e7d2a, transparent 70%);
 }
 .runner .icon-btn {
   background: rgba(255, 255, 255, 0.1);
@@ -1302,7 +1302,7 @@ main {
   flex-direction: column;
   justify-content: flex-end;
   padding: 22px;
-  background: linear-gradient(160deg, #3d2233, #1b1218);
+  background: linear-gradient(160deg, #3a2c3a, #1d1820);
   gap: 6px;
 }
 .media-empty span {
