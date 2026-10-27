@@ -155,7 +155,8 @@
       "media/incline-db-press/07.jpg",
       "media/incline-db-press/08.jpg"
     ],
-    "demoReady": false
+    "demoReady": true,
+    "placeholder": false
   },
   {
     "slug": "cable-lateral-raise-low-pulley",
@@ -240,7 +241,8 @@
       "media/seated-cable-chest-press/07.jpg",
       "media/seated-cable-chest-press/08.jpg"
     ],
-    "demoReady": false
+    "demoReady": true,
+    "placeholder": false
   },
   {
     "slug": "front-plank",
@@ -327,7 +329,8 @@
       "media/face-pull/07.jpg",
       "media/face-pull/08.jpg"
     ],
-    "demoReady": false
+    "demoReady": true,
+    "placeholder": false
   },
   {
     "slug": "dead-bug",
@@ -415,7 +418,8 @@
       "media/cable-fly-high-to-low/07.jpg",
       "media/cable-fly-high-to-low/08.jpg"
     ],
-    "demoReady": false
+    "demoReady": true,
+    "placeholder": false
   },
   {
     "slug": "overhead-rope-triceps-extension",
@@ -456,7 +460,8 @@
       "media/overhead-rope-triceps-extension/07.jpg",
       "media/overhead-rope-triceps-extension/08.jpg"
     ],
-    "demoReady": false
+    "demoReady": true,
+    "placeholder": false
   },
   {
     "slug": "triceps-pushdown",
@@ -497,7 +502,8 @@
       "media/triceps-pushdown/07.jpg",
       "media/triceps-pushdown/08.jpg"
     ],
-    "demoReady": false
+    "demoReady": true,
+    "placeholder": false
   },
   {
     "slug": "incline-walk-10-14-at-2-8-3-3-mph",
@@ -863,7 +869,8 @@
       "media/standing-db-calf-raise/07.jpg",
       "media/standing-db-calf-raise/08.jpg"
     ],
-    "demoReady": false
+    "demoReady": true,
+    "placeholder": false
   },
   {
     "slug": "seated-cable-row-v-handle",
@@ -1078,7 +1085,8 @@
       "media/hollow-hold/07.jpg",
       "media/hollow-hold/08.jpg"
     ],
-    "demoReady": false
+    "demoReady": true,
+    "placeholder": false
   },
   {
     "slug": "side-plank",
@@ -1508,7 +1516,8 @@
       "media/hip-thrust/07.jpg",
       "media/hip-thrust/08.jpg"
     ],
-    "demoReady": false
+    "demoReady": true,
+    "placeholder": false
   },
   {
     "slug": "reverse-crunch-on-bench",

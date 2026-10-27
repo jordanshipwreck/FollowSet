@@ -3,7 +3,7 @@
    This worker never reloads a page. It does not listen for controllerchange.
    skipWaiting lets the new shell take the next launch. clients.claim is intentionally not called:
    claiming the page that is still booting freezes iOS standalone on the loading screen. */
-const CACHE = "fitty-shell-v8";
+const CACHE = "fitty-shell-v9";
 const SCOPE = new URL("./", self.location);
 const SHELL = [
   new URL("./", self.location).href,
