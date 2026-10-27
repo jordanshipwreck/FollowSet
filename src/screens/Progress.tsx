@@ -1,5 +1,5 @@
 import { Icon } from "../components/Icon";
-import { Ring } from "../components/ui";
+import { Num, TickRing } from "../components/ui";
 import { addDays, iso, monthDay, weekStart } from "../lib/dates";
 import { flags, grade, GRADE_NAME, overall, summarize } from "../lib/grade";
 import { compact, volume } from "../lib/log";
@@ -33,9 +33,9 @@ export function Progress({ store }: { store: Store }) {
       </header>
 
       <section className="card grade-hero" data-testid="gains-grade-label">
-        <Ring value={(avg ?? 0) / 100} size={128} stroke={12}>
-          <strong className="display sm">{avg ?? "—"}</strong>
-        </Ring>
+        <TickRing value={(avg ?? 0) / 100} size={136} ticks={60} length={12} width={2.5}>
+          <Num value={avg ?? "—"} className="lg" />
+        </TickRing>
         <div>
           <span className="eyebrow">{GRADE_NAME}</span>
           <p className="big-txt">{avg === null ? "No ratings yet" : avg >= 75 ? "Firing well" : avg >= 55 ? "Solid, room to push" : "Something's lagging"}</p>
@@ -48,14 +48,22 @@ export function Progress({ store }: { store: Store }) {
           <span className="eyebrow">Weekly volume</span>
           <span className="muted small">lb × reps</span>
         </div>
-        <div className="vbars" role="img" aria-label="Weekly volume for the last 8 weeks">
-          {weeks.map((w, i) => (
-            <div className="vbar" key={w}>
-              <span className="vbar-val">{vols[i] ? compact(vols[i]) : ""}</span>
-              <i className={w === thisWeek ? "now" : ""} style={{ height: `${Math.max(4, (vols[i] / maxVol) * 100)}%` }} />
-              <span className="vbar-lbl">{monthDay(w).replace(/^\w+ /, "")}</span>
-            </div>
-          ))}
+        <div className="ticks-chart" role="img" aria-label="Weekly volume for the last 8 weeks">
+          {weeks.map((w, i) => {
+            const h = vols[i] ? Math.max(6, (vols[i] / maxVol) * 100) : 0;
+            return (
+              <div className={w === thisWeek ? "tick-col now" : "tick-col"} key={w}>
+                <span className="tick-val">{vols[i] ? compact(vols[i]) : ""}</span>
+                <div className="tick-track">
+                  {Array.from({ length: 14 }, (_, k) => (
+                    <i key={k} />
+                  ))}
+                  {vols[i] > 0 && <b style={{ bottom: `${h}%` }} />}
+                </div>
+                <span className="tick-lbl">{monthDay(w).replace(/^\w+ /, "")}</span>
+              </div>
+            );
+          })}
         </div>
       </section>
 

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Icon } from "../components/Icon";
-import { Ring, Sheet, Thumb } from "../components/ui";
+import { DotRow, KnobButton, Num, Sheet, StatCard, Thumb, TickRing } from "../components/ui";
 import { addDays, clock, dayOf, fmt, iso, longDay, monthDay, weekDates, weekRangeLabel } from "../lib/dates";
 import { overall, summarize } from "../lib/grade";
 import { compact, volume } from "../lib/log";
@@ -16,6 +16,8 @@ function greeting(): string {
   return h < 5 ? "Late one" : h < 12 ? "Good morning" : h < 17 ? "Good afternoon" : "Good evening";
 }
 
+const plural = (n: number, w: string) => `${n} ${w}${n === 1 ? "" : "s"}`;
+
 export function Today({
   store,
   date,
@@ -25,6 +27,7 @@ export function Today({
   summaryFor,
   setSummaryFor,
   openSettings,
+  openTab,
   toast,
 }: {
   store: Store;
@@ -35,6 +38,7 @@ export function Today({
   summaryFor: string | null;
   setSummaryFor: (id: string | null) => void;
   openSettings: () => void;
+  openTab: (t: "history" | "progress") => void;
   toast: (t: string) => void;
 }) {
   const { state } = store;
@@ -49,6 +53,7 @@ export function Today({
   const isFuture = date > today;
   const isActive = !!active && !!session && active.id === session.id;
   const otherActive = active && !isActive ? active : null;
+  const num = w.title.match(/^#\d+/)?.[0];
 
   const hasLogs = (d: string) => state.sessions.some((s) => s.date === d && (s.finished || s.logs.length > 0));
   const weekSessions = state.sessions.filter((s) => week.includes(s.date));
@@ -56,36 +61,43 @@ export function Today({
   const doneCount = trainingDays.filter(hasLogs).length;
   const weekVol = volume(weekSessions.flatMap((s) => s.logs));
   const weekSets = weekSessions.reduce((n, s) => n + s.logs.length, 0);
-  const avgGrade = overall(summarize(state.sessions.flatMap((s) => s.ratings)));
-
-  const status = session?.finished ? "done" : isActive ? "live" : "ready";
+  const grades = summarize(state.sessions.flatMap((s) => s.ratings));
+  const avgGrade = overall(grades);
+  const done = !!session?.finished;
   const summarySession = summaryFor ? state.sessions.find((s) => s.id === summaryFor) : null;
 
   return (
     <div className="screen today">
       <header className="greet">
-        <div className="avatar" aria-hidden="true">
+        <div className="brandmark" aria-hidden="true">
           F
         </div>
-        <div>
-          <p className="muted">{greeting()}</p>
+        <div className="greet-txt">
+          <span className="label">{greeting()}</span>
           <h1 className="brand">Followset</h1>
         </div>
         <button type="button" className="icon-btn" aria-label="Settings" data-testid="open-settings" onClick={openSettings}>
-          <Icon name="gear" />
+          <Icon name="gear" size={20} />
         </button>
       </header>
 
-      <section className="card week-card">
-        <div className="week-head">
+      <div className="headline">
+        <span className="muted">Today is {fmt(today, { weekday: "long", month: "long", day: "numeric" })}</span>
+        <h2 className="display-title">
+          <span className="thin">{date === today ? "Today's" : longDay(date) + "'s"}</span> Workout
+        </h2>
+      </div>
+
+      <section className="glass week-card">
+        <div className="row-between">
           <button type="button" className="icon-btn sm" aria-label="Previous week" onClick={() => setDate(addDays(date, -7))}>
-            <Icon name="left" size={18} />
+            <Icon name="left" size={16} />
           </button>
-          <button type="button" className="week-label" onClick={() => setDate(today)} title="Jump to today">
+          <button type="button" className="label week-label" onClick={() => setDate(today)} title="Jump to today">
             {weekRangeLabel(date)}
           </button>
           <button type="button" className="icon-btn sm" aria-label="Next week" onClick={() => setDate(addDays(date, 7))}>
-            <Icon name="right" size={18} />
+            <Icon name="right" size={16} />
           </button>
         </div>
         <div className="week">
@@ -98,119 +110,152 @@ export function Today({
               onClick={() => setDate(d)}
               aria-label={`${longDay(d)} ${monthDay(d)}${hasLogs(d) ? ", logged" : ""}`}
             >
-              <span>{fmt(d, { weekday: "narrow" })}</span>
+              <span>{fmt(d, { weekday: "short" })}</span>
               <strong>{fmt(d, { day: "numeric" })}</strong>
-              <i />
+              <i>{hasLogs(d) ? <Icon name="check" size={12} stroke={2.6} /> : null}</i>
             </button>
           ))}
         </div>
       </section>
 
       {otherActive && (
-        <button type="button" className="card resume-card" onClick={() => onStart(otherActive.date)}>
+        <button type="button" className="glass resume-card" onClick={() => onStart(otherActive.date)}>
           <span className="live-dot" />
           <span>
             {PROGRAM[otherActive.day].title} is still running from {monthDay(otherActive.date)}
           </span>
-          <Icon name="arrow" />
+          <span className="arrow">
+            <Icon name="arrowUp" size={16} />
+          </span>
         </button>
       )}
 
-      <section className={`hero ${status}`} data-testid="hero">
+      <section className={`hero ${done ? "done" : ""}`} data-testid="hero">
         <div className="hero-top">
-          <span className="chip ink">{date === today ? "Today" : `${longDay(date)} · ${monthDay(date)}`}</span>
-          {w.title.match(/^#\d+/) && <span className="hero-num">{w.title.match(/^#\d+/)![0]}</span>}
+          <span className="ico">
+            <Icon name="dumbbell" size={18} />
+          </span>
+          <span className="label">{date === today ? "Today" : `${longDay(date)} · ${monthDay(date)}`}</span>
+          {done && session ? (
+            <button type="button" className="arrow" aria-label="Review workout" data-testid="review" onClick={() => setSummaryFor(session.id)}>
+              <Icon name="arrowUp" size={16} />
+            </button>
+          ) : (
+            <span className={isActive ? "status live" : "status"}>{isActive ? "Live" : isFuture ? "Preview" : date < today ? "Makeup" : "Ready"}</span>
+          )}
         </div>
         <h2 className="hero-title" data-testid="workout-title">
           {shortTitle(w.title)}
+          {num && <sup>{num}</sup>}
         </h2>
-        <p className="hero-meta">
-          {queue.length} steps · ~{estimateMinutes(queue)} min{muscles.length ? ` · ${muscles.length} muscles` : ""}
-        </p>
+        <div className="hero-stats">
+          <div>
+            <span className="label">Steps</span>
+            <Num value={queue.length} />
+          </div>
+          <div>
+            <span className="label">Time</span>
+            <Num value={`~${estimateMinutes(queue)}`} unit="min" />
+          </div>
+          <div>
+            <span className="label">Muscles</span>
+            <Num value={muscles.length} />
+          </div>
+        </div>
         {muscles.length > 0 && (
-          <div className="hero-muscles">
+          <div className="chips">
             {muscles.map((m) => (
-              <span key={m} className={focus.includes(m) ? "chip ink on" : "chip ink"}>
+              <span key={m} className={focus.includes(m) ? "chip on" : "chip"}>
                 {m}
                 {focus.includes(m) ? " +1" : ""}
               </span>
             ))}
           </div>
         )}
-        <div className="hero-foot">
-          {status === "done" && session ? (
-            <>
-              <div>
-                <p className="hero-stat">
-                  <Icon name="check" size={18} /> Done{session.startedAt ? ` in ${clock(elapsed(session, Date.now()) / 1000)}` : ""}
-                </p>
-                <p className="hero-sub">
-                  {session.logs.length} {session.logs.length === 1 ? "set" : "sets"} · {compact(volume(session.logs))} lb
-                </p>
-              </div>
-              <button type="button" className="go dark" aria-label="Review workout" data-testid="review" onClick={() => setSummaryFor(session.id)}>
-                <Icon name="arrow" size={26} />
-              </button>
-            </>
-          ) : (
-            <>
-              <div>
-                <p className="hero-stat">{isActive ? "In progress" : isFuture ? "Preview" : date < today ? "Missed? Make it up" : "Ready when you are"}</p>
-                <p className="hero-sub">
-                  {isFuture ? "This day hasn't arrived, so nothing logs yet." : isActive ? `Step ${Math.min(active!.idx + 1, queue.length)} of ${queue.length}` : "Warm-up through stretches."}
-                </p>
-              </div>
-              <button
-                type="button"
-                className="go dark"
-                data-testid="start-workout"
-                aria-label={isActive ? "Resume workout" : date < today ? "Start makeup" : "Start workout"}
-                disabled={isFuture || !!otherActive}
-                onClick={() => onStart(date)}
-              >
-                <Icon name={isActive ? "arrow" : "play"} size={26} />
-              </button>
-            </>
-          )}
-        </div>
+        {done && session ? (
+          <div className="done-row">
+            <span className="status ok">
+              <Icon name="check" size={14} stroke={2.4} /> Done
+            </span>
+            <span className="muted">
+              {session.startedAt ? `${clock(elapsed(session, Date.now()) / 1000)} · ` : ""}
+              {plural(session.logs.length, "set")} · {compact(volume(session.logs))} lb
+            </span>
+          </div>
+        ) : (
+          <KnobButton
+            testid="start-workout"
+            label={
+              isActive
+                ? `Resume · step ${Math.min(active!.idx + 1, queue.length)} of ${queue.length}`
+                : isFuture
+                  ? "Preview only"
+                  : date < today
+                    ? "Start makeup"
+                    : "Start workout"
+            }
+            ariaLabel={isActive ? "Resume workout" : date < today ? "Start makeup" : "Start workout"}
+            icon={isActive ? "arrow" : "play"}
+            tone="dark"
+            disabled={isFuture || !!otherActive}
+            onClick={() => onStart(date)}
+          />
+        )}
+        {isFuture && <p className="muted small">This day hasn't arrived, so nothing logs yet.</p>}
       </section>
-      {status === "done" && session && !isFuture && (
+      {done && session && !isFuture && (
         <button type="button" className="link" onClick={() => onStart(date)}>
           Run it again
         </button>
       )}
 
       <section className="bento">
-        <div className="tile big">
-          <Ring value={trainingDays.length ? doneCount / trainingDays.length : 0} size={74} stroke={8}>
-            <strong>
-              {doneCount}/{trainingDays.length}
-            </strong>
-          </Ring>
-          <div>
-            <strong>This week</strong>
-            <span>main sessions logged</span>
+        <StatCard
+          icon="check"
+          label="This week"
+          value={doneCount}
+          unit={`/${trainingDays.length}`}
+          foot={<DotRow total={trainingDays.length} filled={doneCount} />}
+          onOpen={() => openTab("history")}
+        />
+        <StatCard
+          icon="flame"
+          label="Volume"
+          value={compact(weekVol)}
+          unit="lb"
+          tone="lime"
+          foot={<span className="small">{plural(weekSets, "set")} this week</span>}
+        />
+        <div className="stat wide">
+          <div className="stat-top">
+            <span className="ico">
+              <Icon name="chart" size={16} />
+            </span>
+            <button type="button" className="arrow" aria-label="Open Gains Grade" onClick={() => openTab("progress")}>
+              <Icon name="arrowUp" size={16} />
+            </button>
           </div>
-        </div>
-        <div className="tile lilac">
-          <Icon name="flame" size={18} />
-          <strong>{compact(weekVol)}</strong>
-          <span>lb this week · {weekSets} sets</span>
-        </div>
-        <div className="tile peach">
-          <Icon name="chart" size={18} />
-          <strong>{avgGrade ?? "—"}</strong>
-          <span>avg Gains Grade</span>
+          <div className="stat-split">
+            <div>
+              <span className="label">Gains Grade</span>
+              <Num value={avgGrade ?? "—"} unit={avgGrade === null ? undefined : "/100"} />
+              <span className="muted small">{grades.length ? `across ${plural(grades.length, "muscle")}` : "Rate muscles after a workout"}</span>
+            </div>
+            <TickRing value={(avgGrade ?? 0) / 100} size={84} ticks={48} length={9} />
+          </div>
         </div>
       </section>
 
-      <h3 className="section-title">Session plan</h3>
+      <div className="section-head">
+        <span className="label">Session plan</span>
+        <span className="muted small">{w.groups.length} blocks</span>
+      </div>
       <div className="plan" data-testid="plan-table">
         {w.groups.map((g, gi) => (
-          <div className="card group" key={gi}>
-            <div className="group-head">
-              <span className="eyebrow">{g.label}</span>
-              <span className="muted small">{g.rest}s rest</span>
+          <div className="glass group" key={gi}>
+            <div className="row-between">
+              <span className="label">{g.label}</span>
+              <span className="pill-mini">{g.rest}s rest</span>
             </div>
             {g.items.map((it, ii) => (
               <div className="plan-row" key={ii}>

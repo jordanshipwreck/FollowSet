@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Icon } from "../components/Icon";
-import { Ring } from "../components/ui";
+import { Num, TickRing } from "../components/ui";
 import { clock, fmt } from "../lib/dates";
 import { grade, GRADE_NAME } from "../lib/grade";
 import { compact, logText, volume } from "../lib/log";
@@ -47,18 +47,18 @@ export function Summary({ store, session, toast }: { store: Store; session: Sess
       <div className="bento three">
         <div className="tile">
           <Icon name="clock" size={18} />
-          <strong>{mins}</strong>
+          <Num value={mins} />
           <span>Time</span>
         </div>
         <div className="tile">
           <Icon name="check" size={18} />
-          <strong>{session.logs.length}</strong>
+          <Num value={session.logs.length} />
           <span>Sets</span>
         </div>
         <div className="tile">
           <Icon name="flame" size={18} />
-          <strong>{compact(vol)}</strong>
-          <span>lb moved</span>
+          <Num value={compact(vol)} unit="lb" />
+          <span>Volume</span>
         </div>
       </div>
 
@@ -92,9 +92,9 @@ export function Summary({ store, session, toast }: { store: Store; session: Sess
             <div className={r ? "rate-card rated" : "rate-card"} key={m}>
               <div className="rate-head">
                 <strong>{m}</strong>
-                <Ring value={g / 100} size={44} stroke={5} color={r ? "var(--lime)" : "var(--muted)"}>
+                <TickRing value={g / 100} size={52} ticks={36} length={6} on={r ? "var(--lime-deep)" : "var(--muted)"}>
                   <span className="grade-num">{g}</span>
-                </Ring>
+                </TickRing>
               </div>
               <label className="slider">
                 <span>

@@ -83,7 +83,7 @@ async function networkFirst(request) {
     const hit = (await cache.match(request)) || (await cache.match(new URL("./index.html", BASE).href)) || (await cache.match(BASE));
     if (hit) return hit;
     return new Response(
-      '<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><body style="margin:0;min-height:100vh;display:grid;place-items:center;background:#0a0a0b;color:#f4f4f1;font:17px system-ui;padding:24px;text-align:center">Followset couldn\'t load. Check the connection, then open it again.</body>',
+      '<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><body style="margin:0;min-height:100vh;display:grid;place-items:center;background:#ecebe7;color:#0e0e0c;font:17px system-ui;padding:24px;text-align:center">Followset couldn\'t load. Check the connection, then open it again.</body>',
       { headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" } },
     );
   }

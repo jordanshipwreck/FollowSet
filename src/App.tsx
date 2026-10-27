@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Icon } from "./components/Icon";
+import { Aura } from "./components/ui";
 import { dayOf, iso } from "./lib/dates";
 import { keepAwake, say, setWakeVideo, unlockAudio } from "./lib/device";
 import { openDrive, wasSignedIn } from "./lib/drive";
@@ -150,6 +151,7 @@ export function App() {
         />
       ) : (
         <>
+          <Aura />
           <main>
             {tab === "today" && (
               <Today
@@ -161,6 +163,10 @@ export function App() {
                 summaryFor={summaryFor}
                 setSummaryFor={setSummaryFor}
                 openSettings={() => setTab("me")}
+                openTab={(t) => {
+                  setTab(t);
+                  window.scrollTo(0, 0);
+                }}
                 toast={toast}
               />
             )}

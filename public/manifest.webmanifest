@@ -6,8 +6,8 @@
   "start_url": "/FollowSet/",
   "scope": "/FollowSet/",
   "display": "standalone",
-  "background_color": "#0a0a0b",
-  "theme_color": "#0a0a0b",
+  "background_color": "#ecebe7",
+  "theme_color": "#ecebe7",
   "lang": "en",
   "icons": [
     {

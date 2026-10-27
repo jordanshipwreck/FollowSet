@@ -33,6 +33,8 @@ const PATHS: Record<string, string> = {
   gear: "M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM19 12a7 7 0 0 0-.1-1.2l2-1.6-2-3.4-2.4 1a7 7 0 0 0-2-1.2L14 3h-4l-.5 2.6a7 7 0 0 0-2 1.2l-2.4-1-2 3.4 2 1.6a7 7 0 0 0 0 2.4l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 2 1.2L10 21h4l.5-2.6a7 7 0 0 0 2-1.2l2.4 1 2-3.4-2-1.6c.07-.4.1-.8.1-1.2Z",
   up: "M12 19V5M6 11l6-6 6 6",
   timer: "M12 21a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM12 9v4M9.5 2.5h5",
+  arrowUp: "M7 17 17 7M9 7h8v8",
+  dumbbell: "M6.5 6.5v11M17.5 6.5v11M4 9v6M20 9v6M6.5 12h11",
 };
 
 export function Icon({ name, size = 22, stroke = 1.9 }: { name: keyof typeof PATHS | string; size?: number; stroke?: number }) {

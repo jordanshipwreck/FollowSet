@@ -42,7 +42,7 @@ Run a fixed weekly lifting program from a phone on the gym floor: show the next 
 
 ## System structure
 
-React 19 + TypeScript, built by Vite into static files. No server. See the layout in `README.md`.
+React 19 + TypeScript, built by Vite into static files. No server. See the layout in `README.md`. Visual rules: `docs/DESIGN.md`.
 
 Data (`localStorage["fitty-v2"]`):
 
@@ -131,4 +131,5 @@ Single user, no accounts. Anyone with the phone can see and edit everything on i
 | Date | Change |
 |---|---|
 | 2026-10-27 | **v3 rebuild from source.** Vite + React + TypeScript replaces the 4 MB minified single file (now ~90 KB gzipped plus fonts). New UI: dark canvas, lime/lilac/peach bento cards, pill nav, full-screen runner with steppers and a ring rest timer. Program repeats weekly instead of ending Nov 1. Added: week navigation, last-time and progression hints, weekly volume chart, per-muscle sparklines, JSON import, Drive sign-out, step jump list, minimize-while-running bar, midnight rollover. Fixed: Drive sign-in timed out after 2 s (consent popup could never finish), Drive merge never applied edits from another device, catalog pointed the incline walk at a missing GIF, offline launch needed precached assets, photo zip names collided for repeat shots. Dropped: v1 `fitty-workout-log` import and the one-time Oct 26 "repair" that could overwrite a hand-logged Oct 26. |
+| 2026-10-27 | **Restyle to the Rondesign reference** (docs/DESIGN.md). Light warm canvas with blurred glows, white frosted cards, thin Outfit numerals, Doto dot-matrix timers, knob-pill Start/Log buttons, tick rings and tick charts, black ↗ buttons, black-pill tabs. The workout screen is dark mauve glass over the blurred demo frame. Fonts: Inter Tight replaced by Outfit + Doto. |
 | 2026-10-26 | v2 single-file build: End/Discard, Oct 26 Push seed, exercise catalog, demo GIFs, Drive sync, Settings gear. |

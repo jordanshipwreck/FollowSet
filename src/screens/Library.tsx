@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Icon } from "../components/Icon";
-import { Sheet } from "../components/ui";
+import { Pills, Sheet } from "../components/ui";
 import { liftKey, setText } from "../lib/log";
 import type { Store } from "../lib/useStore";
 
@@ -33,7 +33,7 @@ export function Library({ store }: { store: Store }) {
   const [items, setItems] = useState<Entry[] | null>(null);
   const [failed, setFailed] = useState(false);
   const [q, setQ] = useState("");
-  const [phase, setPhase] = useState("all");
+  const [phase, setPhase] = useState<(typeof PHASES)[number][0]>("all");
   const [muscle, setMuscle] = useState("all");
   const [open, setOpen] = useState<Entry | null>(null);
 
@@ -80,13 +80,7 @@ export function Library({ store }: { store: Store }) {
         <Icon name="search" size={18} />
         <input data-testid="library-search" type="search" placeholder="Search exercises" value={q} onChange={(e) => setQ(e.target.value)} />
       </label>
-      <div className="chips scroll">
-        {PHASES.map(([k, l]) => (
-          <button type="button" key={k} className={phase === k ? "chip lime" : "chip"} onClick={() => setPhase(k)}>
-            {l}
-          </button>
-        ))}
-      </div>
+      <Pills value={phase} options={PHASES} onChange={setPhase} />
       <div className="chips scroll">
         <button type="button" className={muscle === "all" ? "chip on" : "chip"} onClick={() => setMuscle("all")}>
           All muscles

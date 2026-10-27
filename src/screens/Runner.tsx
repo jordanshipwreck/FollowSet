@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Icon } from "../components/Icon";
-import { Ring, Sheet, Stepper, Thumb } from "../components/ui";
+import { Aura, KnobButton, Sheet, Stepper, Thumb, TickRing } from "../components/ui";
 import { clock } from "../lib/dates";
 import { beep, buzz, canListen, keepAwake, listenForNumber, say, stopSpeech, unlockAudio } from "../lib/device";
 import { lastWeight, previousPerformance, progressionHint, repTop, setText } from "../lib/log";
@@ -331,6 +331,7 @@ export function Runner({
 
   return (
     <div className="runner" data-testid="runner">
+      <Aura image={media && !media.illustration ? media.still : undefined} />
       <header className="run-top">
         <button type="button" className="icon-btn" aria-label="Minimize workout" data-testid="minimize" onClick={onMinimize}>
           <Icon name="left" />
@@ -444,9 +445,11 @@ export function Runner({
         {step.item.timerSec && (
           <div className="work-timer">
             {workTimer ? (
-              <Ring value={remaining / (workTimer.total * 1000)} size={132} stroke={10}>
-                <strong data-testid="timer-digits">{clock(remaining / 1000)}</strong>
-              </Ring>
+              <TickRing value={remaining / (workTimer.total * 1000)} size={150} ticks={60} length={10}>
+                <strong className="dotnum" data-testid="timer-digits">
+                  {clock(remaining / 1000)}
+                </strong>
+              </TickRing>
             ) : (
               <button type="button" className="btn ghost wide" data-testid="start-timer" onClick={startWorkTimer} disabled={paused}>
                 <Icon name="play" size={18} /> Start {clock(step.item.timerSec)}
@@ -540,17 +543,14 @@ export function Runner({
         <button type="button" className="round" aria-label="Back" data-testid="back" onClick={() => go(idx - 1)} disabled={idx === 0}>
           <Icon name="back" />
         </button>
-        <button type="button" className="btn lime big" data-testid="log-set" onClick={() => void logSet()} disabled={paused || listening}>
-          {listening ? (
-            <>
-              <Icon name="mic" /> Listening…
-            </>
-          ) : (
-            <>
-              <Icon name="check" /> Log set
-            </>
-          )}
-        </button>
+        <KnobButton
+          testid="log-set"
+          tone="lime"
+          icon={listening ? "mic" : "check"}
+          label={listening ? "Listening…" : "Log set"}
+          onClick={() => void logSet()}
+          disabled={paused || listening}
+        />
         <button type="button" className="round" aria-label="Skip" data-testid="skip" onClick={() => go(idx + 1)}>
           <Icon name="skip" />
         </button>
@@ -574,11 +574,19 @@ export function Runner({
           <p className="eyebrow" data-testid="timer-label">
             {remaining <= 0 ? "Time's up. Go." : timer.label}
           </p>
-          <Ring value={timer.total ? remaining / (timer.total * 1000) : 0} size={232} stroke={14} track="rgba(255,255,255,.08)">
-            <strong className="display" data-testid="timer-digits">
+          <TickRing
+            value={timer.total ? remaining / (timer.total * 1000) : 0}
+            size={250}
+            ticks={72}
+            length={16}
+            width={3}
+            on={remaining <= 0 ? "var(--ink)" : "var(--lime)"}
+            off={remaining <= 0 ? "rgba(14,14,12,.15)" : "rgba(255,255,255,.12)"}
+          >
+            <strong className="dotnum big" data-testid="timer-digits">
               {clock(remaining / 1000)}
             </strong>
-          </Ring>
+          </TickRing>
           <div className="up-next big">
             <Thumb name={step.item.name} size={56} />
             <div>

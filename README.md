@@ -6,6 +6,7 @@ GitHub Pages serves it at https://jordanshipwreck.github.io/FollowSet/. Workouts
 
 - **How to run, fix, and maintain it:** [`docs/SOP.md`](docs/SOP.md)
 - **Why it is built this way:** [`docs/DECISIONS.md`](docs/DECISIONS.md)
+- **How it should look:** [`docs/DESIGN.md`](docs/DESIGN.md)
 
 ## Develop
 
@@ -26,7 +27,7 @@ index.html              boot screen, Google client id, entry script
 src/
   App.tsx               tabs, starting a run, Drive sync, midnight rollover
   screens/              Today, Runner, Summary, History, Progress, Library, Me
-  components/           Icon, Ring, Sheet, Stepper, Toggle, Thumb
+  components/           Icon, TickRing, DotRow, Num, StatCard, KnobButton, Aura, Pills, Sheet, Stepper, Toggle, Thumb
   lib/
     program.ts          the weekly program (edit this to change workouts)
     cues.ts             form cues per exercise (2–3 each, required)
