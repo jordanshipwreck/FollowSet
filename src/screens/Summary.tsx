@@ -4,7 +4,8 @@ import { Num, TickRing } from "../components/ui";
 import { clock, fmt } from "../lib/dates";
 import { grade, GRADE_NAME } from "../lib/grade";
 import { compact, logText, volume } from "../lib/log";
-import { PROGRAM, workMuscles } from "../lib/program";
+import { workoutFor } from "../lib/market";
+import { workMuscles } from "../lib/program";
 import type { Rating, Session } from "../lib/store";
 import type { Store } from "../lib/useStore";
 import { elapsed } from "./Runner";
@@ -28,7 +29,7 @@ export async function copyText(text: string): Promise<boolean> {
 }
 
 export function Summary({ store, session, toast }: { store: Store; session: Session; toast: (t: string) => void }) {
-  const w = PROGRAM[session.day];
+  const w = workoutFor(session.programId, session.day);
   const muscles = workMuscles(w);
   const [showLog, setShowLog] = useState(false);
   const text = logText(session.logs, fmt(session.date, { month: "numeric", day: "numeric", year: "numeric" }), w.title);

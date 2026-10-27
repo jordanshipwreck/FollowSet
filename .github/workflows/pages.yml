@@ -37,6 +37,11 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          # Followset cloud (docs/CLOUD.md). Empty until set in repo Settings → Variables; the app
+          # stays local-only without them. The anon key is public by design (RLS guards the data).
+          VITE_SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
 
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request'

@@ -1,11 +1,15 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { CoachChat } from "../components/CoachChat";
 import { Icon } from "../components/Icon";
 import { Aura, KnobButton, Sheet, Stepper, Thumb, TickRing } from "../components/ui";
 import { clock } from "../lib/dates";
 import { beep, buzz, canListen, keepAwake, listenForNumber, say, stopSpeech, unlockAudio } from "../lib/device";
 import { lastWeight, previousPerformance, progressionHint, repTop, setText } from "../lib/log";
 import { mediaFor } from "../lib/media";
-import { PROGRAM } from "../lib/program";
+import { health } from "../lib/health";
+import { market, workoutFor } from "../lib/market";
+import { useMediaUrl } from "../lib/mediaStore";
+import { useVault } from "../lib/vault";
 import { buildQueue, isDropSet, logId, slotLabel, SWITCH_REST, type Step } from "../lib/queue";
 import type { Drop, Session, SetLog, Timer } from "../lib/store";
 import { useNow, type Store } from "../lib/useStore";
@@ -51,7 +55,7 @@ export function Runner({
   toast: (t: string) => void;
 }) {
   const { ref, putSession, state } = store;
-  const workout = PROGRAM[session.day];
+  const workout = useMemo(() => workoutFor(session.programId, session.day), [session.programId, session.day]);
   const queue = useMemo(() => buildQueue(workout, session.focus), [workout, session.focus]);
   const idx = Math.min(session.idx, queue.length - 1);
   const step = queue[idx];
@@ -66,11 +70,17 @@ export function Runner({
   const [weight, setWeight] = useState("");
   const [reps, setReps] = useState("");
   const [drops, setDrops] = useState<Drop[]>(blankDrops);
-  const [menu, setMenu] = useState<null | "menu" | "plan" | "discard">(null);
+  const [menu, setMenu] = useState<null | "menu" | "plan" | "discard" | "coach">(null);
   const [listening, setListening] = useState(false);
   const [mediaBad, setMediaBad] = useState(false);
   const [cuesOpen, setCuesOpen] = useState(true);
   const logging = useRef(false);
+  const { items: vault } = useVault();
+  const program = market.find(session.programId);
+  const creatorVideo = useMediaUrl(step?.item.videoRef);
+  const creatorVoice = useMediaUrl(step?.item.voiceRef);
+  const voiceEl = useRef<HTMLAudioElement>(null);
+  const talked = useRef("");
 
   const cur = () => ref.current.sessions.find((s) => s.id === session.id) ?? session;
   const stepKey = `${session.id}|${idx}`;
@@ -147,6 +157,24 @@ export function Runner({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [now]);
+
+  // Creator talk: when a set starts (not during rest), play their voice note, or read their note aloud.
+  useEffect(() => {
+    if (!step || resting || paused) return;
+    const key = `${stepKey}|${creatorVoice ? "v" : "t"}`;
+    if (talked.current === key) return;
+    if (creatorVoice && voiceEl.current) {
+      talked.current = key;
+      stopSpeech();
+      voiceEl.current.currentTime = 0;
+      void voiceEl.current.play().catch(() => {});
+    } else if (!step.item.voiceRef && step.item.talk && state.settings.voice) {
+      talked.current = key;
+      const t = setTimeout(() => say(step.item.talk!, true), 1800);
+      return () => clearTimeout(t);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stepKey, resting, paused, creatorVoice]);
 
   if (!step) return null;
 
@@ -352,13 +380,18 @@ export function Runner({
         <button type="button" className="icon-btn" aria-label={paused ? "Resume" : "Pause"} data-testid={paused ? "resume" : "pause"} onClick={paused ? resume : pause}>
           <Icon name={paused ? "play" : "pause"} />
         </button>
+        <button type="button" className="icon-btn" aria-label="Ask coach" data-testid="run-coach" onClick={() => setMenu("coach")}>
+          <Icon name="spark" />
+        </button>
         <button type="button" className="icon-btn" aria-label="Workout menu" data-testid="run-menu" onClick={() => setMenu("menu")}>
           <Icon name="list" />
         </button>
       </header>
 
       <div className="media-card" key={`m-${stepKey}-${resting ? "r" : "a"}`}>
-        {media ? (
+        {creatorVideo ? (
+          <video data-testid="creator-video" src={creatorVideo} autoPlay loop muted playsInline />
+        ) : media ? (
           <img
             key={media.src}
             data-testid="hero-image"
@@ -398,6 +431,17 @@ export function Runner({
         <h1 className="ex-name" data-testid="exercise-name">
           {step.item.name}
         </h1>
+        {(step.item.talk || step.item.voiceRef) && (
+          <div className="talk" data-testid="creator-talk">
+            <span className="brandmark sm">{(program.creator.name || "C").slice(0, 1)}</span>
+            <p>{step.item.talk ?? `${program.creator.name || "Your creator"} left a voice note for this move.`}</p>
+            {creatorVoice && (
+              <button type="button" className="icon-btn sm" aria-label="Play voice note" onClick={() => void voiceEl.current?.play().catch(() => {})}>
+                <Icon name="volume" size={16} />
+              </button>
+            )}
+          </div>
+        )}
         <div className="pills">
           <span className="pill">
             <Icon name="bolt" size={15} />
@@ -636,6 +680,17 @@ export function Runner({
               Keep going
             </button>
           </div>
+        </Sheet>
+      )}
+      {creatorVoice && <audio ref={voiceEl} src={creatorVoice} preload="auto" />}
+      {menu === "coach" && (
+        <Sheet title="Coach" onClose={() => setMenu(null)}>
+          <CoachChat
+            compact
+            speak={state.settings.voice}
+            prompts={["What weight?", "Form cue", "Swap this", "It hurts", "Sets left?"]}
+            ctx={() => ({ app: ref.current, program, health: health.get(), vault: vault ?? [], step, today: session.date })}
+          />
         </Sheet>
       )}
       {menu === "plan" && (

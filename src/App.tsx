@@ -1,29 +1,35 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { Icon } from "./components/Icon";
-import { Aura } from "./components/ui";
+import { Aura, Pills } from "./components/ui";
+import { useCloudSync } from "./lib/cloudSync";
 import { dayOf, iso } from "./lib/dates";
 import { keepAwake, say, setWakeVideo, unlockAudio } from "./lib/device";
 import { openDrive, wasSignedIn } from "./lib/drive";
-import { PROGRAM } from "./lib/program";
+import { market, useMarket, workoutFor } from "./lib/market";
 import { buildQueue } from "./lib/queue";
 import { mergeStates, newSession, parseState, sessionId, type Session } from "./lib/store";
 import { applyTheme, watchSystemTheme } from "./lib/theme";
 import { useStore } from "./lib/useStore";
+import { Coach } from "./screens/Coach";
+import { Discover } from "./screens/Discover";
 import { History } from "./screens/History";
 import { Library } from "./screens/Library";
 import { Me } from "./screens/Me";
 import { Progress } from "./screens/Progress";
 import { Runner } from "./screens/Runner";
+import { Studio } from "./screens/Studio";
 import { Today } from "./screens/Today";
 
-type Tab = "today" | "history" | "progress" | "library" | "me";
+type Tab = "today" | "discover" | "coach" | "progress" | "me" | "studio";
 const TABS: [Tab, string, string][] = [
   ["today", "Today", "home"],
-  ["history", "History", "history"],
+  ["discover", "Discover", "compass"],
+  ["coach", "Coach", "spark"],
   ["progress", "Progress", "chart"],
-  ["library", "Library", "library"],
   ["me", "You", "user"],
 ];
+/** Studio lives under Discover in the tab bar. */
+const NAV_OF: Partial<Record<Tab, Tab>> = { studio: "discover" };
 
 /** The live run, if any. Several can exist in old data; the most recently touched wins. */
 function liveSession(sessions: Session[]): Session | null {
@@ -33,11 +39,15 @@ function liveSession(sessions: Session[]): Session | null {
 
 export function App() {
   const store = useStore();
+  useMarket();
   const { state, ref, putSession, commit } = store;
   const [tab, setTab] = useState<Tab>("today");
   const [date, setDate] = useState(iso);
   const [runnerOpen, setRunnerOpen] = useState(() => !!liveSession(ref.current.sessions));
   const [summaryFor, setSummaryFor] = useState<string | null>(null);
+  const [progressView, setProgressView] = useState<"progress" | "history">("progress");
+  const [discoverView, setDiscoverView] = useState<"programs" | "vault">("programs");
+  const [studioEdit, setStudioEdit] = useState<string | null>(null);
   const [toastMsg, setToastMsg] = useState("");
   const [syncMsg, setSyncMsg] = useState("");
   const toastTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
@@ -49,6 +59,7 @@ export function App() {
     clearTimeout(toastTimer.current);
     toastTimer.current = setTimeout(() => setToastMsg(""), 2200);
   }, []);
+  useCloudSync(store, toast);
 
   const sync = useCallback(
     async (interactive: boolean) => {
@@ -122,14 +133,27 @@ export function App() {
         finished: false,
         focus: [...ref.current.settings.focus],
         timer: null,
+        programId: existing.startedAt || existing.logs.length ? existing.programId : market.get().activeId,
         runBase: existing.logs.map((l) => ({ ...l, drops: l.drops.map((x) => ({ ...x })) })),
       };
       putSession(s);
-      const first = buildQueue(PROGRAM[day], s.focus)[0];
-      if (first) say(`${PROGRAM[day].title}. ${first.item.name}. ${first.item.cues.join(" ")}`, ref.current.settings.voice);
+      const w = workoutFor(s.programId, day);
+      const first = buildQueue(w, s.focus)[0];
+      if (!first) return;
+      say(`${w.title}. ${first.item.name}. ${first.item.cues.join(" ")}`, ref.current.settings.voice);
     }
     setDate(d);
     setRunnerOpen(true);
+    window.scrollTo(0, 0);
+  }
+
+  /** Switch tabs; "history" is the History view inside Progress. */
+  function go(t: Tab | "history") {
+    if (t === "history") {
+      setProgressView("history");
+      t = "progress";
+    } else if (t === "progress") setProgressView("progress");
+    setTab(t);
     window.scrollTo(0, 0);
   }
 
@@ -167,44 +191,91 @@ export function App() {
                 summaryFor={summaryFor}
                 setSummaryFor={setSummaryFor}
                 openSettings={() => setTab("me")}
-                openTab={(t) => {
-                  setTab(t);
-                  window.scrollTo(0, 0);
-                }}
+                openTab={(t) => go(t)}
                 toast={toast}
               />
             )}
-            {tab === "history" && (
-              <History
+            {tab === "discover" && (
+              <>
+                <div className="screen-tabs">
+                  <Pills
+                    value={discoverView}
+                    options={[
+                      ["programs", "Programs"],
+                      ["vault", "Exercise vault"],
+                    ]}
+                    onChange={setDiscoverView}
+                  />
+                </div>
+                {discoverView === "programs" ? (
+                  <Discover
+                    toast={toast}
+                    openStudio={(id) => {
+                      setStudioEdit(id);
+                      go("studio");
+                    }}
+                    goToday={() => go("today")}
+                  />
+                ) : (
+                  <Library store={store} />
+                )}
+              </>
+            )}
+            {tab === "studio" && <Studio editId={studioEdit} setEditId={setStudioEdit} toast={toast} goToday={() => go("today")} />}
+            {tab === "coach" && <Coach store={store} toast={toast} />}
+            {tab === "progress" && (
+              <>
+                <div className="screen-tabs">
+                  <Pills
+                    value={progressView}
+                    options={[
+                      ["progress", "Progress"],
+                      ["history", "History"],
+                    ]}
+                    onChange={setProgressView}
+                  />
+                </div>
+                {progressView === "progress" ? (
+                  <Progress store={store} />
+                ) : (
+                  <History
+                    store={store}
+                    toast={toast}
+                    openDay={(d) => {
+                      setDate(d);
+                      go("today");
+                    }}
+                  />
+                )}
+              </>
+            )}
+            {tab === "me" && (
+              <Me
                 store={store}
+                sync={sync}
+                syncMsg={syncMsg}
                 toast={toast}
-                openDay={(d) => {
-                  setDate(d);
-                  setTab("today");
+                openStudio={() => {
+                  setStudioEdit(null);
+                  go("studio");
                 }}
               />
             )}
-            {tab === "progress" && <Progress store={store} />}
-            {tab === "library" && <Library store={store} />}
-            {tab === "me" && <Me store={store} sync={sync} syncMsg={syncMsg} toast={toast} />}
           </main>
           {active && (
             <button type="button" className="live-bar" data-testid="resume-bar" onClick={() => start(active.date)}>
               <span className="live-dot" />
               <span>
-                <strong>{PROGRAM[active.day].title}</strong>
+                <strong>{workoutFor(active.programId, active.day).title}</strong>
                 <small>{active.pauseStarted ? "Paused" : "In progress"} · tap to return</small>
               </span>
               <Icon name="arrow" />
             </button>
           )}
-          <nav className="nav" aria-label="Sections" style={{ "--i": TABS.findIndex(([k]) => k === tab) } as CSSProperties}>
+          <nav className="nav" aria-label="Sections" style={{ "--i": TABS.findIndex(([k]) => k === (NAV_OF[tab] ?? tab)) } as CSSProperties}>
             <i className="nav-pill" aria-hidden="true" />
             {TABS.map(([k, label, icon]) => (
-              <button key={k} type="button" data-testid={`tab-${k}`} className={tab === k ? "on" : ""} aria-current={tab === k ? "page" : undefined} onClick={() => {
-                setTab(k);
-                window.scrollTo(0, 0);
-              }}>
+              <button key={k} type="button" data-testid={`tab-${k}`} className={(NAV_OF[tab] ?? tab) === k ? "on" : ""} aria-current={(NAV_OF[tab] ?? tab) === k ? "page" : undefined} onClick={() => go(k)}>
                 <Icon name={icon} size={22} />
                 <span>{label}</span>
               </button>

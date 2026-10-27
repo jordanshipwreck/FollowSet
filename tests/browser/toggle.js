@@ -1,0 +1,21 @@
+const { chromium } = require('playwright');
+(async () => {
+  const b = await chromium.launch();
+  const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, colorScheme: 'light' });
+  const p = await ctx.newPage();
+  await p.goto('http://localhost:8766/', { waitUntil: 'networkidle' });
+  const th = () => p.evaluate(() => document.documentElement.dataset.theme);
+  console.log('system/light:', await th());
+  await p.click('[data-testid=tab-me]');
+  await p.click('[data-testid=theme] >> text=Dark');
+  console.log('after Dark:', await th());
+  await p.reload({ waitUntil: 'domcontentloaded' });
+  console.log('after reload (pre-React):', await th());
+  await p.click('[data-testid=tab-me]'); await p.waitForTimeout(500);
+  await p.screenshot({ path: process.argv[2] + '/t-toggle-me.png' });
+  await p.click('[data-testid=theme] >> text=Auto');
+  await p.emulateMedia({ colorScheme: 'dark' });
+  await p.waitForTimeout(200);
+  console.log('auto + phone dark:', await th());
+  await b.close();
+})();

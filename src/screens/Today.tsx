@@ -4,7 +4,8 @@ import { DotRow, KnobButton, Num, Sheet, StatCard, Thumb, TickRing } from "../co
 import { addDays, clock, dayOf, fmt, iso, longDay, monthDay, weekDates, weekRangeLabel } from "../lib/dates";
 import { overall, summarize } from "../lib/grade";
 import { compact, volume } from "../lib/log";
-import { PROGRAM, shortTitle, workMuscles } from "../lib/program";
+import { market, plural, useMarket, workoutFor } from "../lib/market";
+import { shortTitle, workMuscles } from "../lib/program";
 import { buildQueue, estimateMinutes, slotLabel } from "../lib/queue";
 import { sessionId, type Session } from "../lib/store";
 import type { Store } from "../lib/useStore";
@@ -16,7 +17,6 @@ function greeting(): string {
   return h < 5 ? "Late one" : h < 12 ? "Good morning" : h < 17 ? "Good afternoon" : "Good evening";
 }
 
-const plural = (n: number, w: string) => `${n} ${w}${n === 1 ? "" : "s"}`;
 
 export function Today({
   store,
@@ -38,14 +38,17 @@ export function Today({
   summaryFor: string | null;
   setSummaryFor: (id: string | null) => void;
   openSettings: () => void;
-  openTab: (t: "history" | "progress") => void;
+  openTab: (t: "history" | "progress" | "discover") => void;
   toast: (t: string) => void;
 }) {
   const { state } = store;
   const today = iso();
   const day = dayOf(date);
-  const w = PROGRAM[day];
   const session = state.sessions.find((s) => s.id === sessionId(date, day)) ?? null;
+  const m = useMarket();
+  const programId = session && (session.startedAt || session.logs.length) ? session.programId : m.activeId;
+  const program = market.find(programId);
+  const w = workoutFor(programId, day);
   const focus = session?.startedAt ? session.focus : state.settings.focus;
   const queue = useMemo(() => buildQueue(w, focus), [w, focus]);
   const muscles = workMuscles(w);
@@ -123,7 +126,7 @@ export function Today({
         <button type="button" className="glass resume-card" onClick={() => onStart(otherActive.date)}>
           <span className="live-dot" />
           <span>
-            {PROGRAM[otherActive.day].title} is still running from {monthDay(otherActive.date)}
+            {workoutFor(otherActive.programId, otherActive.day).title} is still running from {monthDay(otherActive.date)}
           </span>
           <span className="arrow">
             <Icon name="arrowUp" size={16} />
@@ -145,6 +148,11 @@ export function Today({
             <span className={isActive ? "status live" : "status"}>{isActive ? "Live" : isFuture ? "Preview" : date < today ? "Makeup" : "Ready"}</span>
           )}
         </div>
+        <button type="button" className="program-chip" data-testid="program-chip" onClick={() => openTab("discover")}>
+          <span>{program.title}</span>
+          <small>by {program.creator.name || "you"}</small>
+          <Icon name="right" size={14} />
+        </button>
         <h2 className="hero-title" data-testid="workout-title">
           {shortTitle(w.title)}
           {num && <sup>{num}</sup>}
@@ -183,6 +191,10 @@ export function Today({
               {plural(session.logs.length, "set")} · {compact(volume(session.logs))} lb
             </span>
           </div>
+        ) : queue.length === 0 ? (
+          <p className="muted" data-testid="rest-day">
+            Rest day in {program.title}. Walk, stretch, eat your protein.
+          </p>
         ) : (
           <KnobButton
             testid="start-workout"
@@ -204,7 +216,7 @@ export function Today({
         )}
         {isFuture && <p className="muted small">This day hasn't arrived, so nothing logs yet.</p>}
       </section>
-      {done && session && !isFuture && (
+      {done && session && !isFuture && queue.length > 0 && (
         <button type="button" className="link" onClick={() => onStart(date)}>
           Run it again
         </button>
@@ -276,7 +288,7 @@ export function Today({
       </div>
 
       {summarySession && (
-        <Sheet title={PROGRAM[summarySession.day].title} onClose={() => setSummaryFor(null)}>
+        <Sheet title={workoutFor(summarySession.programId, summarySession.day).title} onClose={() => setSummaryFor(null)}>
           <Summary store={store} session={summarySession} toast={toast} />
         </Sheet>
       )}

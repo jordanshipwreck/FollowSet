@@ -64,6 +64,8 @@ export interface Session {
   /** Wall-clock end of the run, for the duration shown in History. */
   endedAt?: number;
   seedId?: string;
+  /** Program this session ran (market.ts). Missing = Followset Original. */
+  programId?: string;
 }
 
 export interface Settings {

@@ -5,6 +5,7 @@ import { iso } from "../lib/dates";
 import { say } from "../lib/device";
 import { DRIVE, lastSynced, signOut, wasSignedIn } from "../lib/drive";
 import { addPhoto, deletePhoto, download, listPhotos, photosZip, POSES, type Photo } from "../lib/photos";
+import { CloudCard } from "../components/CloudCard";
 import { mergeStates, parseState } from "../lib/store";
 import type { Store } from "../lib/useStore";
 
@@ -29,11 +30,13 @@ export function Me({
   sync,
   syncMsg,
   toast,
+  openStudio,
 }: {
   store: Store;
   sync: (interactive: boolean) => Promise<void>;
   syncMsg: string;
   toast: (t: string) => void;
+  openStudio: () => void;
 }) {
   const { state, setSettings, commit, ref, saveFailed } = store;
   const [photos, setPhotos] = useState<Photo[]>([]);
@@ -130,10 +133,23 @@ export function Me({
     <div className="screen">
       <header className="page-head">
         <h1>You</h1>
-        <p className="muted">Photos, sync, and settings</p>
+        <p className="muted">Account, photos, sync, and settings</p>
       </header>
 
       {saveFailed && <div className="callout warn">This browser blocked local save. Export JSON before you leave.</div>}
+
+      <button type="button" className="glass resume-card" data-testid="me-studio" onClick={openStudio}>
+        <Icon name="video" size={18} />
+        <span>
+          <strong>Creator Studio</strong>
+          <small className="muted"> · build and publish programs</small>
+        </span>
+        <span className="arrow">
+          <Icon name="arrowUp" size={16} />
+        </span>
+      </button>
+
+      <CloudCard toast={toast} />
 
       <section className="card" data-testid="settings">
         <span className="eyebrow">Workout</span>
