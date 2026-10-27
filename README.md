@@ -1,39 +1,53 @@
 # Followset
 
-Workout PWA for the week of Oct 26–Nov 1, 2026. The on-screen name is Followset. The per-muscle score is still called Gains Grade.
+A workout PWA for a repeating weekly lifting program: logs sets, runs superset rest timers, keeps the demo on screen, and grades each muscle afterwards (Gains Grade).
 
-The repo is `jordanshipwreck/FollowSet`. GitHub Pages serves it at https://jordanshipwreck.github.io/FollowSet/. The manifest `id`, `start_url`, and `scope` are `/FollowSet/` (trailing slash, case-sensitive). The service worker is registered at that same scope.
+GitHub Pages serves it at https://jordanshipwreck.github.io/FollowSet/. Workouts are stored on the phone (`localStorage` key `fitty-v2`), and Google Drive keeps an optional backup.
 
-## What is in this repo
+- **How to run, fix, and maintain it:** [`docs/SOP.md`](docs/SOP.md)
+- **Why it is built this way:** [`docs/DECISIONS.md`](docs/DECISIONS.md)
+- **How it should look:** [`docs/DESIGN.md`](docs/DESIGN.md)
 
-The Vite app in the private Origin repo (`jordan-d1m1b/fitty`, main) was not reachable from the environment that published this site (Origin CLI had no `CURSOR_AUTH_TOKEN`). `site/` is the single-file v2 build, with images inlined, plus:
+## Develop
 
-- `manifest.webmanifest` — `start_url` and `scope` are `/FollowSet/`
-- `sw.js` — offline shell (`fitty-shell-v9`), registered with scope `/FollowSet/`. A navigation waits at most 4 seconds for the network, then uses the cached shell, then a visible message. Activating this worker deletes older `fitty-shell` caches. It does not claim the open page and it does not reload on `controllerchange`.
-- `exercises.json` — one entry per exercise. The app’s Exercise Library reads this file.
-- `media/<slug>/01.jpg` — the still frame extracted from the build. Frames `02.jpg`–`08.jpg` are catalog paths for later swaps.
-- `media/<slug>/demo.gif` — 38 demo animations, loaded by relative path when that exercise is on screen. They are not inlined in `index.html`. The service worker caches each GIF the first time it is shown. The incline walk still uses `01.jpg` because no GIF was supplied for it.
-- `media/<slug>/placeholder.svg` — illustration card for the 16 warm-ups and stretches that have no photo yet. The Now card and the Exercise Library show that card at full width.
-- `icon-192.png`, `icon-512.png`, and `apple-touch-icon.png`
+```bash
+npm install
+npm run dev        # http://localhost:5173
+npm test           # unit tests (vitest)
+npm run build      # typecheck + production build into dist/
+npm run preview    # serve dist/ locally
+```
 
-`catalog/exercises.csv` is the same catalog in spreadsheet form. It is not part of the Pages upload.
+Node 22. There is no backend.
 
-There is no `npm run build` step. The workflow publishes the `site/` directory as-is.
+## Layout
+
+```
+index.html              boot screen, Google client id, entry script
+src/
+  App.tsx               tabs, starting a run, Drive sync, midnight rollover
+  screens/              Today, Runner, Summary, History, Progress, Library, Me
+  components/           Icon, TickRing, DotRow, Num, StatCard, KnobButton, Aura, Pills, Sheet, Stepper, Toggle, Thumb
+  lib/
+    program.ts          the weekly program (edit this to change workouts)
+    cues.ts             form cues per exercise (2–3 each, required)
+    queue.ts            program → ordered steps (supersets, sides, rests)
+    store.ts            data model, load/save, v2 migration, Oct 26 seed, merge
+    log.ts              copyable log text, last weights, progression hints, volume
+    grade.ts            Gains Grade formula and flags
+    dates.ts            week math (Monday first, local time)
+    media.ts            exercise name → public/media/<slug>/
+    drive.ts            Google Drive backup
+    photos.ts           progress photos (IndexedDB) + zip export
+    device.ts           beep, vibrate, speech in/out, wake lock
+    useStore.ts         React state + persistence
+public/                 copied as-is: media, exercises.json, manifest, sw.js, icons
+catalog/exercises.csv   the exercise catalog in spreadsheet form (not deployed)
+tests/                  vitest
+```
 
 ## Deploy
 
-Pushes to `main` run [`.github/workflows/pages.yml`](.github/workflows/pages.yml). That workflow uses `actions/configure-pages` (with `enablement: true`), `actions/upload-pages-artifact`, and `actions/deploy-pages`.
+Pushing to `main` runs [`.github/workflows/pages.yml`](.github/workflows/pages.yml): `npm ci` → `npm test` → `npm run build` → publish `dist/` to Pages. Pull requests run the same build and tests without deploying.
 
-`GITHUB_TOKEN` often cannot create the Pages site. If a run fails with "Get Pages site failed" or "Create Pages site failed":
-
-1. Open the repository **Settings → Pages**.
-2. Under **Build and deployment**, set **Source** to **GitHub Actions** (not "Deploy from a branch").
-3. Re-run the latest **pages** workflow, or push an empty commit.
-
-The header gear opens Settings. The swipe-up sheet also has Plan, History, Calendar, Gains Grade, Photos, Library, and Settings. On a phone that has no 2026-10-26 Push history yet, the app merges that workout once under seed id `fitty-seed:2026-10-26:push-1` and marks the day done. An existing log for that day is left alone. Logs stay in `localStorage` key `fitty-v2`. Photos stay in IndexedDB `fitty-photos`.
-
-## Google Drive sync
-
-`site/index.html` sets `window.FITTY_GOOGLE_CLIENT_ID`. The app passes that id to Google Identity Services (`accounts.google.com/gsi/client`, `initTokenClient`) with scope `https://www.googleapis.com/auth/drive.file`. Sync writes `Fitty-Cent/fitty-workout.json`.
-
-The OAuth client is a web client. Its authorized JavaScript origin is `https://jordanshipwreck.github.io` (no `/fitty` path). The consent screen is in Testing, with `jordanshipwreck@gmail.com` as a test user. Settings shows **Sign in with Google**, which requests that scope and then uploads the log.
+If a run fails with "Get Pages site failed": **Settings → Pages → Build and deployment → Source: GitHub Actions**, then re-run the workflow.
